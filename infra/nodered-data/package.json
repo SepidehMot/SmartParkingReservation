@@ -1,0 +1,23 @@
+{
+  "name": "red-project",
+  "description": "A Node-RED Project",
+  "version": "0.0.1",
+  "private": true,
+  "main": "settings.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "firebase-admin": "^13.6.0",
+    "node-red-contrib-plate-recognizer": "^1.0.3",
+    "node-red-dashboard": "^3.6.6",
+    "node-red-node-ui-table": "^0.4.5"
+  }
+}

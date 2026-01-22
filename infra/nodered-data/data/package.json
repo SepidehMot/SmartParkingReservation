@@ -1,0 +1,9 @@
+{
+  "name": "nodered-userdir",
+  "private": true,
+  "dependencies": {
+    "node-red-contrib-plate-recognizer": "^1.0.3",
+    "node-red-dashboard": "^3.6.6",
+    "node-red-node-ui-table": "^0.4.5"
+  }
+}

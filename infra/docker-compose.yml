@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+      # - ./passwords:/mosquitto/config/passwords
+      - ./data:/mosquitto/data
+      - ./log:/mosquitto/log
+
+  nodered:
+    image: nodered/node-red:latest
+    ports:
+      - "1880:1880"
+    environment:
+      - TZ=Europe/Rome
+      - MQTT_HOST=mosquitto
+      - MQTT_PORT=1883
+      - FIREBASE_SERVICE_ACCOUNT=/data/serviceAccount.json
+    volumes:
+      - ./nodered-data:/data
+      - ../serviceAccount.json:/data/serviceAccount.json:ro
+    depends_on:
+      - mosquitto

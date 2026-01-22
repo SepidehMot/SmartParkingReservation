@@ -1,0 +1,9 @@
+node_modules
+.DS_Store
+*.env
+*.env.*
+serviceAccount.json
+
+.npm
+infra/passwordsserviceAccount.json
+serviceAccount.json

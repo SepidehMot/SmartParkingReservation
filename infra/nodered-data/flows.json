@@ -1,0 +1,2255 @@
+[
+    {
+        "id": "d41148fb949e110b",
+        "type": "tab",
+        "label": "smart-parking",
+        "disabled": false
+    },
+    {
+        "id": "c195c791176b5fba",
+        "type": "tab",
+        "label": "dashboard-slots-live-view",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "3b138ae0a125b52b",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "${MQTT_HOST}",
+        "port": "${MQTT_PORT}",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "mqttbroker00000001",
+        "type": "mqtt-broker",
+        "name": "Mosquitto",
+        "broker": "smartparking-mosquitto",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "ui_tab_smartparking",
+        "type": "ui_tab",
+        "name": "Smart Parking",
+        "icon": "fa-tachometer",
+        "order": 10,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ui_group_slots_live",
+        "type": "ui_group",
+        "name": "Slots Live View",
+        "tab": "ui_tab_smartparking",
+        "order": 4,
+        "disp": true,
+        "width": "24",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "826884dd6b30bcb3",
+        "type": "ui_group",
+        "name": "Reservations Live",
+        "tab": "ui_tab_smartparking",
+        "order": 5,
+        "disp": true,
+        "width": "24",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ui_group_kpis",
+        "type": "ui_group",
+        "name": "Parking Overview",
+        "tab": "ui_tab_smartparking",
+        "order": 2,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ui_group_time_series",
+        "type": "ui_group",
+        "name": "Time Series",
+        "tab": "ui_tab_smartparking",
+        "order": 1,
+        "disp": true,
+        "width": "24",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f175917b832b91f6",
+        "type": "ui_group",
+        "name": "ACK",
+        "tab": "ui_tab_smartparking",
+        "order": 3,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "65b23b866e54e0fe",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#3a88fe",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#3a88fe",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#3a88fe",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#86b6fe",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#3a88fe",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "148dddd473d60620",
+        "type": "function",
+        "z": "d41148fb949e110b",
+        "name": "Build Reservation",
+        "func": "const { lotId, slotId, userId, duration, plateNumber, startAt } = msg.payload || {};\n\nif (!lotId || !slotId || !userId) {\n    msg.statusCode = 400;\n    msg.payload = { error: \"lotId, slotId and userId required\" };\n    return [null, msg];\n}\n\nconst admin = global.get(\"firebase_admin\");\nif (!admin) {\n    msg.statusCode = 500;\n    msg.payload = { error: \"Firebase Admin not initialized\" };\n    return [null, msg];\n}\nconst db = admin.firestore();\n\n(async () => {\n    try {\nlet minutes = Number(duration);\nif (!Number.isFinite(minutes) || minutes <= 0) minutes = 30;\n\nconst plateNum = (plateNumber || \"\").toUpperCase().trim();\n        if (!plateNum) {\n  msg.statusCode = 400;\n  msg.payload = { error: \"plateNumber required\" };\n  node.send([null, msg]);\n  return;\n}\n\nconst nowTs = admin.firestore.Timestamp.now();\nconst existingSnap = await db.collection(\"reservations\")\n  .where(\"plateNumber\", \"==\", plateNum)\n  .where(\"status\", \"in\", [\"active\", \"occupied\"])\n  .where(\"expiresAt\", \">\", nowTs)\n  .limit(1)\n  .get();\n\nif (!existingSnap.empty) {\n  msg.statusCode = 409;\n  msg.payload = { error: \"This plate already has an active reservation.\" };\n  node.send([null, msg]);\n  return;\n}\n\n        const lotRef = db.collection(\"parkingLots\").doc(lotId);\n        const lotSnap = await lotRef.get();\n        if (!lotSnap.exists) {\n            msg.statusCode = 404;\n            msg.payload = { error: \"Parking lot not found\" };\n            node.send([null, msg]);\n            return;\n        }\n\n        const gwId = (lotSnap.data() || {}).gwId;\n        if (!gwId) {\n            msg.statusCode = 500;\n            msg.payload = { error: \"Lot missing gwId\" };\n            node.send([null, msg]);\n            return;\n        }\n\n        const slotRef = lotRef.collection(\"slots\").doc(slotId);\n        const resRef = db.collection(\"reservations\").doc();\n        const reservationId = resRef.id;\n        \n        const expiresAt = admin.firestore.Timestamp.fromDate(\n            new Date(startAt + (minutes * 60000))\n        );\n        const startAtTs = admin.firestore.Timestamp.fromDate(new Date(startAt));\n        const reservationDoc = {\n            lotId,\n            slotId,\n            userId,\n            plateNumber:plateNum,\n            status: \"active\",\n            createdAt: admin.firestore.FieldValue.serverTimestamp(),\n            expiresAt,\n            startAt: startAtTs,\n        };\n\n        await db.runTransaction((tx) => {\n            return tx.get(slotRef).then((slotSnap) => {\n                if (!slotSnap.exists) {\n                    const e = new Error(\"Slot not found\");\n                    e.code = 404;\n                    throw e;\n                }\n\n                const slotData = slotSnap.data() || {};\n                const status = slotData.status || \"free\";\n\n                if (status !== \"free\") {\n                    const e = new Error(\"Slot is not available.\");\n                    e.code = 409;\n                    throw e;\n                }\n\n                tx.set(resRef, reservationDoc);\n                tx.update(\n                    slotRef,\n                    {\n                        status: \"reserving\",\n                        updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n                    }\n                );\n\n                return true;\n            });\n        });\n\n\n\n        const cmd = JSON.stringify({\n            type: \"RESERVE\",\n            slotId,\n        });\n\n        node.send([\n            { topic: `/${gwId}/down_link`, payload: cmd },\n            {\n                ...msg,\n                statusCode: 200,\n                payload: {\n                    status: \"sent\",\n                    reservationId,\n                    lotId,\n                    slotId,\n                    gwId,\n                },\n            },\n        ]);\n    } catch (err) {\n        const code = err.code === 404 ? 404 : err.code === 409 ? 409 : 500;\n        msg.statusCode = code;\n        msg.payload = { error: err.message || \"Reserve failed\" };\n        node.send([null, msg]);\n    } finally {\n        node.done();\n    }\n})();\nreturn;\n",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 280,
+        "wires": [
+            [
+                "8e4cd35faa4214e8"
+            ],
+            [
+                "4259d1ef9e07b8a5"
+            ]
+        ]
+    },
+    {
+        "id": "8e4cd35faa4214e8",
+        "type": "mqtt out",
+        "z": "d41148fb949e110b",
+        "name": "/{gwId}/down_link",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3b138ae0a125b52b",
+        "x": 1170,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "58753f26fcfc0535",
+        "type": "function",
+        "z": "d41148fb949e110b",
+        "name": "Cancel Reservation",
+        "func": "const admin = global.get(\"firebase_admin\");\nif (!admin) {\n  msg.statusCode = 500;\n  msg.payload = { error: \"Firebase Admin not initialized\" };\n  return [null, msg];\n}\nconst db = admin.firestore();\n\nconst reservationId = msg.req?.params?.reservationId;\nif (!reservationId) {\n  msg.statusCode = 400;\n  msg.payload = { error: \"reservationId required\" };\n  return [null, msg];\n}\n\n(async () => {\n  try {\n    const resRef = db.collection(\"reservations\").doc(reservationId);\n\n    const { lotId, slotId } = await db.runTransaction((tx) => {\n      return tx.get(resRef).then((resSnap) => {\n        if (!resSnap.exists) {\n          const e = new Error(\"Reservation not found\");\n          e.code = 404;\n          throw e;\n        }\n\n        const r = resSnap.data() || {};\n        const lotId = r.lotId;\n        const slotId = r.slotId;\n        const status = r.status || \"active\";\n\n        if (!lotId || !slotId) {\n          const e = new Error(\"Reservation missing lotId/slotId\");\n          e.code = 500;\n          throw e;\n        }\n\n        if (status !== \"cancelled\") {\n          const slotRef = db\n            .collection(\"parkingLots\").doc(lotId)\n            .collection(\"slots\").doc(slotId);\n\n          tx.update(resRef, {\n            status: \"cancelled\",\n            cancelledAt: admin.firestore.FieldValue.serverTimestamp(),\n            updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n          });\n\n          tx.update(slotRef, {\n            status: \"free\",\n            updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n          });\n        }\n\n        return { lotId, slotId };\n      });\n    });\n\n    const lotRef = db.collection(\"parkingLots\").doc(lotId);\n    const lotSnap = await lotRef.get();\n    if (!lotSnap.exists) {\n      const e = new Error(\"Parking lot not found\");\n      e.code = 404;\n      throw e;\n    }\n\n    const gwId = (lotSnap.data() || {}).gwId;\n    if (!gwId) {\n      const e = new Error(\"Lot missing gwId\");\n      e.code = 500;\n      throw e;\n    }\n\n    const mqttMsg = {\n      topic: `/${gwId}/down_link`,\n      payload: JSON.stringify({ type: \"CANCEL\", slotId }),\n    };\n\n    msg.statusCode = 200;\n    msg.payload = { ok: true, cancelled: reservationId, lotId, slotId, gwId };\n\n    node.send([mqttMsg, msg]);\n  } catch (err) {\n    const code = err.code === 404 ? 404 : 500;\n    node.error(\"Cancel error: \" + (err.message || err), msg);\n    msg.statusCode = code;\n    msg.payload = { error: err.message || \"Cancel failed\" };\n    node.send([null, msg]);\n  } finally {\n    node.done();\n  }\n})();\n\nreturn;\n",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 420,
+        "wires": [
+            [
+                "8e4cd35faa4214e8"
+            ],
+            [
+                "7008422df4827355"
+            ]
+        ]
+    },
+    {
+        "id": "78f2f7201ea265e2",
+        "type": "mqtt in",
+        "z": "d41148fb949e110b",
+        "name": "/+/down_link_ack",
+        "topic": "/+/down_link_ack",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "3b138ae0a125b52b",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 140,
+        "y": 40,
+        "wires": [
+            [
+                "3b71b5e544664f1d",
+                "0de4c00cef86067c"
+            ]
+        ]
+    },
+    {
+        "id": "3b71b5e544664f1d",
+        "type": "debug",
+        "z": "d41148fb949e110b",
+        "name": "ACK debug",
+        "active": true,
+        "tosidebar": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "fd0a0800f5a3ddac",
+        "type": "inject",
+        "z": "d41148fb949e110b",
+        "name": "Check expired reservations",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 340,
+        "wires": [
+            [
+                "7712c44eb174891b"
+            ]
+        ]
+    },
+    {
+        "id": "7712c44eb174891b",
+        "type": "function",
+        "z": "d41148fb949e110b",
+        "name": "Free Slot",
+        "func": "const admin = global.get(\"firebase_admin\");\nif (!admin) {\n    node.error(\"Firebase Admin not initialized\");\n    return null;\n}\nconst db = admin.firestore();\n\nconst now = admin.firestore.Timestamp.now();\n\n(async () => {\n    try {\n        const snapshot = await db.collection(\"reservations\")\n            .where(\"status\", \"in\", [\"active\", \"occupied\"])\n            .where(\"expiresAt\", \"<=\", now)\n            .get();\n\n        if (snapshot.empty) return;\n\n        const lotGwCache = {};\n\n        for (const doc of snapshot.docs) {\n            const data = doc.data() || {};\n            const reservationId = doc.id;\n            const lotId = data.lotId;\n            const slotId = data.slotId;\n            if (!lotId || !slotId) continue;\n\n            const resRef = doc.ref;\n            const lotRef = db.collection(\"parkingLots\").doc(lotId);\n            const slotRef = lotRef.collection(\"slots\").doc(slotId);\n\n            if (!(lotId in lotGwCache)) {\n                const lotSnap = await lotRef.get();\n                lotGwCache[lotId] = lotSnap.exists ? (lotSnap.data() || {}).gwId : null;\n            }\n            const gwId = lotGwCache[lotId];\n\n            let didExpire = false;\n\n            try {\n                didExpire = await db.runTransaction((tx) => {\n                    return tx.get(resRef).then((resSnap) => {\n                        if (!resSnap.exists) return false;\n\n                        const { status, expiresAt } = resSnap.data() || {};\n                        if (![\"active\", \"occupied\"].includes(status)) return false;\n                        if (!expiresAt || !typeof expiresAt.toMillis) return false;\n                        if (expiresAt.toMillis() > now.toMillis()) return false;\n\n                        tx.update(resRef, {\n                            status: \"expired\",\n                            expiredAt: admin.firestore.FieldValue.serverTimestamp(),\n                            updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n                        });\n\n                        tx.update(slotRef, {\n                            status: \"free\",\n                            updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n                        });\n\n                        return true;\n                    });\n                });\n\n            } catch (e) {\n                node.error(`Transaction failed for reservation ${reservationId}: ${e.message}`, doc);\n                continue;\n            }\n            if (didExpire && gwId) {\n                node.send({\n                    topic: `/${gwId}/down_link`,\n                    payload: JSON.stringify({\n                        type: \"EXPIRED\",\n                        slotId,\n                        reservationId,\n                    }),\n                });\n            }\n        }\n    } catch (err) {\n        node.error(\"Expired reservation job failed: \" + (err.message || err));\n    } finally {\n        node.done();\n    }\n})();\n\nreturn null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 340,
+        "wires": [
+            [
+                "8e4cd35faa4214e8"
+            ]
+        ]
+    },
+    {
+        "id": "d9d3aba37ff75462",
+        "type": "http in",
+        "z": "d41148fb949e110b",
+        "name": "HTTP IN - Extend Reservation",
+        "url": "/reservations/:reservationId/extend",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 880,
+        "wires": [
+            [
+                "def32ce5665fccb1"
+            ]
+        ]
+    },
+    {
+        "id": "def32ce5665fccb1",
+        "type": "function",
+        "z": "d41148fb949e110b",
+        "name": "Extend Reservation",
+        "func": "const b = msg.payload || {};\nconst reservationId = msg.req?.params?.reservationId;\nlet extra = Number(b.extraMinutes);\nif (!Number.isFinite(extra) || extra <= 0)\n{\n  msg.statusCode = 400;\n  msg.payload = { error: \"Numeric Minutes required\" };\n  return msg;\n}\nif (!reservationId) {\n  msg.statusCode = 400;\n  msg.payload = { error: \"reservationId required\" };\n  return msg;\n}\n\nconst admin = global.get(\"firebase_admin\");\nif (!admin) {\n  msg.statusCode = 500;\n  msg.payload = { error: \"Firebase Admin not initialized\" };\n  return msg;\n}\nconst db = admin.firestore();\n\n(async () => {\n  try {\n    const resRef = db.collection(\"reservations\").doc(reservationId);\n    const snap = await resRef.get();\n    if (!snap.exists) {\n      msg.statusCode = 404;\n      msg.payload = { error: \"Reservation not found\" };\n      node.send(msg);\n      return;\n    }\n\n    const { expiresAt } = snap.data();\n    const currentExpiry = expiresAt?.toDate ? expiresAt.toDate() : null;\n    if (!currentExpiry) {\n      msg.statusCode = 500;\n      msg.payload = { error: \"Reservation missing expiresAt\" };\n      node.send(msg);\n      return;\n    }\n\n    const newExpiresAt = new Date(currentExpiry.getTime() + extra * 60000);\n\n    await resRef.update({\n      expiresAt: admin.firestore.Timestamp.fromDate(newExpiresAt),\n      updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n    });\n\n    msg.statusCode = 200;\n    msg.payload = {\n      status: \"extended\",\n      reservationId,\n      newExpiresAt: newExpiresAt.toISOString(),\n    };\n\n    node.send(msg);\n  } catch (err) {\n    msg.statusCode = 500;\n    msg.payload = { error: \"Extend failed: \" + err.message };\n    node.error(err.message, msg);\n    node.send(msg);\n  }\n  finally { node.done(); }\n})();\nreturn;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 880,
+        "wires": [
+            [
+                "bf964dc9d3e9fb4e"
+            ]
+        ]
+    },
+    {
+        "id": "bf964dc9d3e9fb4e",
+        "type": "http response",
+        "z": "d41148fb949e110b",
+        "name": "HTTP Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 820,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "5c8b0c4c44721ff7",
+        "type": "function",
+        "z": "d41148fb949e110b",
+        "name": "Handle ARRIVE",
+        "func": "const reservationId = msg.req?.params?.reservationId;\nif (!reservationId) {\n  msg.statusCode = 400;\n  msg.payload = { error: \"reservationId required\" };\n  return [null, msg];\n}\n\nconst admin = global.get(\"firebase_admin\");\nif (!admin) {\n  msg.statusCode = 500;\n  msg.payload = { error: \"Firebase Admin not initialized\" };\n  return [null, msg];\n}\nconst db = admin.firestore();\n\n(async () => {\n  try {\n    const resRef = db.collection(\"reservations\").doc(reservationId);\n\n    const snap = await resRef.get();\n    if (!snap.exists) {\n      msg.statusCode = 404;\n      msg.payload = { error: \"Reservation not found\" };\n      node.send([null, msg]);\n      return;\n    }\n\n    const { lotId, slotId } = snap.data() || {};\n\n    if (!lotId || !slotId) {\n      msg.statusCode = 500;\n      msg.payload = { error: \"Reservation missing lotId/slotId\" };\n      node.send([null, msg]);\n      return;\n    }\n\n    const lotRef = db.collection(\"parkingLots\").doc(lotId);\n    const slotRef = lotRef.collection(\"slots\").doc(slotId);\n    const lotSnap = await lotRef.get();\n    if (!lotSnap.exists) throw new Error(\"Parking lot not found\");\n    const gwId = (lotSnap.data() || {}).gwId;\n    if (!gwId) throw new Error(\"Lot missing gwId\");\n\nawait db.runTransaction((tx) => {\n  return tx.get(resRef).then((resSnap) => {\n    if (!resSnap.exists) {\n      const e = new Error(\"Reservation not found\");\n      e.code = 404;\n      throw e;\n    }\n\n    const r = resSnap.data() || {};\n    if (r.status !== \"active\") {\n      const e = new Error(\"Reservation is not in active state\");\n      e.code = 409;\n      throw e;\n    }\n    if (r.lotId !== lotId || r.slotId !== slotId) {\n      const e = new Error(\"Reservation lotId/slotId changed\");\n      e.code = 409;\n      throw e;\n    }\n\n    return tx.get(slotRef).then((slotSnap) => {\n      if (!slotSnap.exists) {\n        const e = new Error(\"Slot not found\");\n        e.code = 404;\n        throw e;\n      }\n\n      tx.update(resRef, {\n        status: \"occupied\",\n        arrivedAt: admin.firestore.FieldValue.serverTimestamp(),\n        updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n      });\n\n      tx.update(slotRef, {\n        status: \"occupied\",\n        updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n      });\n\n      return true;\n    });\n  });\n});\n\n\n    const mqttSim = {\n      topic: `/${gwId}/down_link`,\n      payload: JSON.stringify({\n        type: \"SIM_OBJECT\",\n        slotId,\n        magnetic: true,\n        proximity: true,\n      }),\n    };\n    const mqttArrive = {\n      topic: `/${gwId}/down_link`,\n      payload: JSON.stringify({ type: \"ARRIVE\", slotId }),\n    };\n\n    msg.statusCode = 200;\n    msg.payload = { status: \"arrived\", reservationId, lotId, slotId, gwId };\n    node.send([mqttSim, null]);   \n\n    setTimeout(() => {\n      node.send([mqttArrive, null]);\n    }, 200);\n\n    node.send([null, msg]);\n  } catch (err) {\n    const code = err.code === 404 ? 404 : err.code === 409 ? 409 : 500;\n    node.error(\"ARRIVE error: \" + (err.message || err), msg);\n    msg.statusCode = code;\n    msg.payload = { error: \"ARRIVE failed: \" + (err.message || \"Unknown error\") };\n    node.send([null, msg]);\n  } finally {\n    node.done();\n  }\n})();\n\nreturn;\n",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 540,
+        "wires": [
+            [
+                "8e4cd35faa4214e8"
+            ],
+            [
+                "021a3b6af38e49d1"
+            ]
+        ]
+    },
+    {
+        "id": "9e54aa674357e078",
+        "type": "mqtt in",
+        "z": "d41148fb949e110b",
+        "name": "/+/heartbeat",
+        "topic": "/+/heartbeat",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "3b138ae0a125b52b",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 130,
+        "y": 120,
+        "wires": [
+            [
+                "60ee20c22f170661"
+            ]
+        ]
+    },
+    {
+        "id": "60ee20c22f170661",
+        "type": "function",
+        "z": "d41148fb949e110b",
+        "name": "Update Gateway",
+        "func": "const admin = global.get(\"firebase_admin\");\nif (!admin) { node.warn(\"Firebase Admin not initialized\"); return msg; }\nconst db = admin.firestore();\n\nconst { gwId, locks: locksIn, ts } = msg.payload || {};\nif (!gwId) { node.warn(\"Missing gwId in heartbeat\"); return msg; }\n\nasync function getLotIdForGw(gwId) {\n  let gwMap = context.get(\"gwMap\") || {};\n  if (!gwMap[gwId]) {\n    const lotsSnap = await db.collection(\"parkingLots\").get();\n    lotsSnap.forEach(doc => {\n      const d = doc.data() || {};\n      if (d.gwId) gwMap[d.gwId] = doc.id;\n    });\n    context.set(\"gwMap\", gwMap);\n  }\n  return gwMap[gwId] || null;\n}\n\n(async () => {\n  try {\n    const lotId = await getLotIdForGw(gwId);\n    if (!lotId) {\n      node.warn(`No lotId mapped for gwId=${gwId}`);\n      return;\n    }\n\n    const lotRef = db.collection(\"parkingLots\").doc(lotId);\n\n    const batch = db.batch();\n\n   \n    batch.set(lotRef, {\n      lastSeenAt: admin.firestore.FieldValue.serverTimestamp(),\n      lastHeartbeatDeviceTs: ts ,\n       updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n    }, { merge: true });\n\n    for (const lock of locksIn) {\n      const slotId = lock?.slotId;\n      if (!slotId) continue;\n\n      const slotRef = lotRef.collection(\"slots\").doc(slotId);\n\n      const partial = {\n        reportedBattery: (typeof lock?.battery === \"number\") ? lock.battery : null,\n        reportedArmPosition: lock?.armPosition || null,\n        reportedLockStatus: lock.lockStatus,\n        reportedSensor: lock.sensor,\n        lastSeenAt: admin.firestore.FieldValue.serverTimestamp(),\n        lastHeartbeatDeviceTs: lock?.ts,\n        updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n      };\n      batch.set(slotRef, partial, { merge: true });\n    }\n\n    await batch.commit();\n\n    node.log(`Heartbeat from ${gwId} → monitored ${locksIn.length} locks`);\n\n  } catch (err) {\n    node.error(\"Firestore heartbeat handler error: \" + err.message, msg);\n  } finally {\n    node.done();\n  }\n})();\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 120,
+        "wires": [
+            [
+                "25c3272ee2c95209"
+            ]
+        ]
+    },
+    {
+        "id": "25c3272ee2c95209",
+        "type": "debug",
+        "z": "d41148fb949e110b",
+        "name": "HB (heartbeat)",
+        "active": true,
+        "tosidebar": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 820,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "2e8dfa68f7a07d96",
+        "type": "mqtt in",
+        "z": "d41148fb949e110b",
+        "name": "/+/up_link",
+        "topic": "/+/up_link",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "3b138ae0a125b52b",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 120,
+        "y": 200,
+        "wires": [
+            [
+                "318ee1c0c79d977d"
+            ]
+        ]
+    },
+    {
+        "id": "318ee1c0c79d977d",
+        "type": "function",
+        "z": "d41148fb949e110b",
+        "name": "Update Firestore ",
+        "func": "const admin = global.get(\"firebase_admin\");\nif (!admin) { node.warn(\"Firebase Admin not initialized\"); return msg; }\nconst db = admin.firestore();\n\nconst parts = (msg.topic || \"\").split(\"/\");\nconst gwId = parts[1];\n\nconst {\n  type,\n  slotId = \"\",\n  lockId = \"\",\n  lockStatus = \"\",\n  armPosition = \"\",\n  battery = null,\n  sensor = null,\n  magnetic = null,\n  proximity = null\n} = msg.payload || {};\n\nif (!gwId || type !== \"STATUS\" || !slotId) return msg;\n\n(async () => {\n  try {\n    let gwMap = context.get(\"gwMap\") || {};\n    if (!gwMap[gwId]) {\n      const lotsSnap = await db.collection(\"parkingLots\").get();\n      lotsSnap.forEach((doc) => {\n        const d = doc.data() || {};\n        if (d.gwId) gwMap[d.gwId] = doc.id;\n      });\n      context.set(\"gwMap\", gwMap);\n    }\n\n    const lotId = gwMap[gwId];\n    if (!lotId) { node.warn(`No lotId mapped for gwId=${gwId}`); return; }\n\n    const slotRef = db.collection(\"parkingLots\").doc(lotId).collection(\"slots\").doc(slotId);\n    const snap = await slotRef.get();\n    const currentStatus = snap.exists ? (snap.data().status || \"\") : \"\";\n\n    const patch = {\n      lockId,\n      lockStatus,\n      battery,\n      armPosition,\n      magnetic,\n      proximity,\n      sensor,\n      lastSeenAt: admin.firestore.FieldValue.serverTimestamp(),\n      updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n    };\n\n    if (currentStatus === \"reserving\" && (lockStatus == \"reserved\" || lockStatus == \"out_of_order\")) {\n      patch.status = \"reserved\";\n    }\n    const physicallyEmpty = (magnetic === false && proximity === false && sensor === \"clear\");\n\n    // for leaves the slot \n    if (currentStatus === \"occupied\" && physicallyEmpty) {\n      patch.status = \"free\";\n      patch.sensor = \"clear\";\n\n      const occQ = await db.collection(\"reservations\")\n        .where(\"lotId\", \"==\", lotId)\n        .where(\"slotId\", \"==\", slotId)\n        .where(\"status\", \"==\", \"occupied\")\n        .limit(1).get();\n\n      if (!occQ.empty) {\n        const batch = db.batch();\n        occQ.docs.forEach(doc => {\n          batch.update(doc.ref, {\n            status: \"completed\",\n            leftAt: admin.firestore.FieldValue.serverTimestamp(),\n            updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n            autoFreedBySensor: true\n          });\n        });\n        await batch.commit();\n      }\n    }\n\n    await slotRef.set(patch, { merge: true });\n    node.log(`UP_LINK updated: ${slotId} status=${patch.status || currentStatus}`);\n  } catch (err) {\n    node.error(\"UP_LINK Firestore update failed: \" + err.message, msg);\n  }\n  finally { node.done() }\n})();\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 200,
+        "wires": [
+            [
+                "e3366538db715b54"
+            ]
+        ]
+    },
+    {
+        "id": "e3366538db715b54",
+        "type": "debug",
+        "z": "d41148fb949e110b",
+        "name": "UP (status)",
+        "active": true,
+        "tosidebar": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "7008422df4827355",
+        "type": "http response",
+        "z": "d41148fb949e110b",
+        "name": "HTTP Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 820,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "762830428e0664d0",
+        "type": "http in",
+        "z": "d41148fb949e110b",
+        "name": "HTTP IN - Reserve",
+        "url": "/reservations",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 280,
+        "wires": [
+            [
+                "148dddd473d60620"
+            ]
+        ]
+    },
+    {
+        "id": "3cef669794a09b26",
+        "type": "http in",
+        "z": "d41148fb949e110b",
+        "name": "HTTP IN - Cancel",
+        "url": "/reservations/:reservationId/cancel",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 420,
+        "wires": [
+            [
+                "58753f26fcfc0535"
+            ]
+        ]
+    },
+    {
+        "id": "f1d7c4b82e01c111",
+        "type": "http in",
+        "z": "d41148fb949e110b",
+        "name": "HTTP IN - Arrive",
+        "url": "/reservations/:reservationId/arrive",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 540,
+        "wires": [
+            [
+                "5c8b0c4c44721ff7"
+            ]
+        ]
+    },
+    {
+        "id": "021a3b6af38e49d1",
+        "type": "http response",
+        "z": "d41148fb949e110b",
+        "name": "HTTP Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 820,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "4259d1ef9e07b8a5",
+        "type": "http response",
+        "z": "d41148fb949e110b",
+        "name": "HTTP Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 820,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "5e4071adeb930ff3",
+        "type": "inject",
+        "z": "d41148fb949e110b",
+        "name": "Sim ARRIVE (Currect plate)",
+        "props": [
+            {
+                "p": "filename",
+                "v": "/data/images/plate.jpg",
+                "vt": "str"
+            },
+            {
+                "p": "reservationId",
+                "v": "1cpv8eI8gpgVMVRs2Ene",
+                "vt": "str"
+            },
+            {
+                "p": "gwId",
+                "v": "GW_2",
+                "vt": "str"
+            },
+            {
+                "p": "slotId",
+                "v": "S2",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 1100,
+        "wires": [
+            [
+                "755abaf34f0a3dcd"
+            ]
+        ]
+    },
+    {
+        "id": "fd307355fffd05b6",
+        "type": "inject",
+        "z": "d41148fb949e110b",
+        "name": "Sim ARRIVE (Wrong plate)",
+        "props": [
+            {
+                "p": "filename",
+                "v": "/data/images/wrongplatenumber.png",
+                "vt": "str"
+            },
+            {
+                "p": "reservationId",
+                "v": "EpH4pXeUlZSmBzOs7KE5",
+                "vt": "str"
+            },
+            {
+                "p": "gwId",
+                "v": "GW_1",
+                "vt": "str"
+            },
+            {
+                "p": "slotId",
+                "v": "S1",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 140,
+        "y": 1140,
+        "wires": [
+            [
+                "755abaf34f0a3dcd"
+            ]
+        ]
+    },
+    {
+        "id": "755abaf34f0a3dcd",
+        "type": "file in",
+        "z": "d41148fb949e110b",
+        "name": "Read image",
+        "filename": "filename",
+        "filenameType": "msg",
+        "format": "",
+        "chunk": false,
+        "sendError": true,
+        "encoding": "none",
+        "allProps": false,
+        "x": 370,
+        "y": 1140,
+        "wires": [
+            [
+                "b6c21ba29dd1f312"
+            ]
+        ]
+    },
+    {
+        "id": "43168604e8e04160",
+        "type": "function",
+        "z": "d41148fb949e110b",
+        "name": "Extract observed",
+        "func": "function norm(s){ return (s||\"\").toUpperCase().replace(/[^A-Z0-9]/g,\"\"); }\nlet observedRaw =\n  msg.payload?.results?.[0]?.plate ||\n  msg.payload?.results?.[0]?.candidates?.[0]?.plate ||\n  msg.payload?.plate || \"\";\n\nmsg.observedPlateRaw = observedRaw;\nmsg.observedPlate = norm(observedRaw);\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 1140,
+        "wires": [
+            [
+                "f0071a6c013c0a11"
+            ]
+        ]
+    },
+    {
+        "id": "f0071a6c013c0a11",
+        "type": "function",
+        "z": "d41148fb949e110b",
+        "name": "Fetch expected plate",
+        "func": "const admin = global.get(\"firebase_admin\");\nif (!admin) { node.error(\"Firebase Admin not initialized\"); return null; }\nconst db = admin.firestore();\n\nfunction norm(s) { return (s || \"\").toUpperCase().replace(/[^A-Z0-9]/g, \"\"); }\n\nif (!msg.reservationId) { node.error(\"Missing reservationId\"); return null; }\n\nreturn db.collection(\"reservations\").doc(msg.reservationId).get()\n  .then(doc => {\n    if (!doc.exists) throw new Error(\"Reservation not found: \" + msg.reservationId);\n    const data = doc.data() || {};\n    msg.expectedPlateRaw = data.plateNumber || \"\";  \n    msg.expectedPlate = norm(msg.expectedPlateRaw);\n    return msg;\n  })\n  .catch(err => { node.error(err.message, msg); return null; });\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 1020,
+        "wires": [
+            [
+                "20e64accc4ea95e3"
+            ]
+        ]
+    },
+    {
+        "id": "20e64accc4ea95e3",
+        "type": "function",
+        "z": "d41148fb949e110b",
+        "name": "Build ANPR_RESULT",
+        "func": "function norm(s) {\n  return (s || \"\").toUpperCase().replace(/[^A-Z0-9]/g, \"\");\n}\nconst { gwId, slotId, reservationId, expectedPlateRaw, observedPlateRaw } = msg || {};\nconst expected = norm(msg.expectedPlateRaw || msg.expectedPlate);\nconst observed = norm(msg.observedPlateRaw || msg.observedPlate);\n\nconst ok = !!(expected && observed && expected === observed);\n\nmsg.plateMatch = ok;\nmsg.anprResult = {\n  type: \"ANPR_RESULT\",\n  gwId,\n  slotId,\n  reservationId,\n  expectedPlate: expectedPlateRaw || null,\n  observedPlate: observedPlateRaw || null,\n  expectedNorm: expected,\n  observedNorm: observed,\n  ok,\n  ts: Date.now()\n};\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 1140,
+        "wires": [
+            [
+                "372063fd0bc1c64e"
+            ]
+        ]
+    },
+    {
+        "id": "372063fd0bc1c64e",
+        "type": "switch",
+        "z": "d41148fb949e110b",
+        "name": "plateMatch?",
+        "property": "plateMatch",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1090,
+        "y": 1020,
+        "wires": [
+            [
+                "4079bad0bf0e461c",
+                "dcf4da78ddfaab64"
+            ],
+            [
+                "dcf4da78ddfaab64"
+            ]
+        ]
+    },
+    {
+        "id": "4079bad0bf0e461c",
+        "type": "function",
+        "z": "d41148fb949e110b",
+        "name": "ANPR Auto-ARRIVE",
+        "func": "const reservationId = msg.reservationId;\nif (!reservationId) { node.error(\"reservationId missing\"); return [null, null]; }\n\nconst admin = global.get(\"firebase_admin\");\nif (!admin) { node.error(\"Firebase Admin not initialized\"); return [null, null]; }\nconst db = admin.firestore();\n\n(async () => {\n  try {\n    const resRef = db.collection(\"reservations\").doc(reservationId);\n    const snap = await resRef.get();\n    if (!snap.exists) throw new Error(\"Reservation not found\");\n\n    const data = snap.data() || {};\n    const lotId = data.lotId;\n    const slotId = data.slotId;\n    if (!lotId || !slotId) throw new Error(\"Reservation missing lotId/slotId\");\n\n    const lotRef = db.collection(\"parkingLots\").doc(lotId);\n    const slotRef = lotRef.collection(\"slots\").doc(slotId);\n\n    const lotSnap = await lotRef.get();\n    if (!lotSnap.exists) throw new Error(\"Parking lot not found\");\n    const gwId = (lotSnap.data() || {}).gwId;\n    if (!gwId) throw new Error(\"Lot missing gwId\");\n\n    await db.runTransaction((tx) => {\n      return tx.get(resRef).then((resSnap) => {\n        if (!resSnap.exists) throw new Error(\"Reservation not found\");\n\n        const r = resSnap.data() || {};\n        if (r.status !== \"active\") {\n          throw new Error(\"Reservation is not active\");\n        }\n\n        return tx.get(slotRef).then((slotSnap) => {\n          if (!slotSnap.exists) throw new Error(\"Slot not found\");\n\n          tx.update(resRef, {\n            status: \"occupied\",\n            arrivedAt: admin.firestore.FieldValue.serverTimestamp(),\n            updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n            anprVerified: true,\n            observedPlate: msg.observedPlateRaw || null\n          });\n\n          tx.update(slotRef, {\n            status: \"occupied\",\n            updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n          });\n\n          return true; \n        });\n      });\n    });\n\n    node.send([\n      {\n        topic: `/${gwId}/down_link`,\n        payload: JSON.stringify({ type: \"ARRIVE\", slotId }),\n      },\n      {\n        payload: { ok: true, reservationId, lotId, slotId, gwId, anpr: \"approved\" }\n      }\n    ]);\n  } catch (err) {\n    node.error(\"ANPR Auto-ARRIVE failed: \" + err.message, msg);\n    node.send([null, { payload: { ok: false, error: err.message, anpr: \"rejected\" } }]);\n  } finally {\n    node.done();\n  }\n})();\nreturn;\n",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1240,
+        "y": 920,
+        "wires": [
+            [
+                "7782974a7b14a487"
+            ],
+            [
+                "f081c9d726a26565"
+            ]
+        ]
+    },
+    {
+        "id": "7782974a7b14a487",
+        "type": "mqtt out",
+        "z": "d41148fb949e110b",
+        "name": "/{gwId}/down_link",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3b138ae0a125b52b",
+        "x": 1450,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "11a96b9e3c6f4786",
+        "type": "inject",
+        "z": "d41148fb949e110b",
+        "name": "Sim ARRIVE (not car)",
+        "props": [
+            {
+                "p": "filename",
+                "v": "/data/images/moneta.jpeg",
+                "vt": "str"
+            },
+            {
+                "p": "reservationId",
+                "v": "r2CG1pysDH8bohIVXCbZ",
+                "vt": "str"
+            },
+            {
+                "p": "gwId",
+                "v": "GW_1",
+                "vt": "str"
+            },
+            {
+                "p": "slotId",
+                "v": "S1",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 140,
+        "y": 1180,
+        "wires": [
+            [
+                "755abaf34f0a3dcd"
+            ]
+        ]
+    },
+    {
+        "id": "dcf4da78ddfaab64",
+        "type": "function",
+        "z": "d41148fb949e110b",
+        "name": "Simulate sensors",
+        "func": "const { gwId, slotId, filename,reservationId } = msg;\n\nif (!gwId || !slotId) return null;\n\nconst fileName = (filename || \"\").toLowerCase();\nlet distanceCm = 200;\nlet magnetic = false;\n\n\nif (fileName.includes(\"plate\")) {\n    magnetic = true;\n    distanceCm = 10;\n} else if (fileName.includes(\"moneta\")) {\n    magnetic = true;\n    distanceCm = 80;\n}\nconst PROXIMITY_THRESHOLD_CM = 20;\nconst proximity = distanceCm < PROXIMITY_THRESHOLD_CM;\nmsg.topic = `/${gwId}/down_link`;\nmsg.payload = JSON.stringify({\n    type: \"SIM_OBJECT\",\n    slotId,\n    magnetic,\n    proximity, reservationId\n});\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1250,
+        "y": 1180,
+        "wires": [
+            [
+                "7782974a7b14a487"
+            ]
+        ]
+    },
+    {
+        "id": "b6c21ba29dd1f312",
+        "type": "plate-recognizer",
+        "z": "d41148fb949e110b",
+        "name": "",
+        "inputField": "payload",
+        "inputFieldType": "msg",
+        "outputField": "payload",
+        "outputFieldType": "msg",
+        "url": "https://api.platerecognizer.com/v1/plate-reader/",
+        "ignoreDuring": true,
+        "makeAndModel": false,
+        "statusText": "count",
+        "cameraId": "",
+        "separateMsg": false,
+        "regionFilter": false,
+        "regionList": "[]",
+        "regionListType": "json",
+        "x": 540,
+        "y": 1020,
+        "wires": [
+            [
+                "43168604e8e04160"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "6799f405ae19d42c",
+        "type": "inject",
+        "z": "d41148fb949e110b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 1820,
+        "wires": [
+            [
+                "f6ff3a14c2775baf"
+            ]
+        ]
+    },
+    {
+        "id": "f6ff3a14c2775baf",
+        "type": "function",
+        "z": "d41148fb949e110b",
+        "name": "delete all reservations",
+        "func": "const admin = global.get(\"firebase_admin\");\nif (!admin) {\n    node.error(\"Firebase Admin not initialized\");\n    return null;\n}\n\nconst db = admin.firestore();\n\n(async () => {\n    try {\n        const snap = await db.collection(\"reservations\").get();\n        if (snap.empty) {\n            node.warn(\"No reservations to delete\");\n            return;\n        }\n\n        const batch = db.batch();\n        snap.docs.forEach(doc => batch.delete(doc.ref));\n\n        await batch.commit();\n        node.log(`Deleted ${snap.size} reservations`);\n    } catch (err) {\n        node.error(\"Batch delete failed: \" + err.message, msg);\n    } finally {\n        node.done();\n    }\n})();\n\nreturn;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 1820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c6fe5c018b92df6c",
+        "type": "inject",
+        "z": "d41148fb949e110b",
+        "name": "Sim Leave",
+        "props": [
+            {
+                "p": "filename",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "p": "reservationId",
+                "v": "EpH4pXeUlZSmBzOs7KE5",
+                "vt": "str"
+            },
+            {
+                "p": "gwId",
+                "v": "GW_2",
+                "vt": "str"
+            },
+            {
+                "p": "slotId",
+                "v": "S2",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 600,
+        "y": 1180,
+        "wires": [
+            [
+                "dcf4da78ddfaab64"
+            ]
+        ]
+    },
+    {
+        "id": "0de4c00cef86067c",
+        "type": "function",
+        "z": "d41148fb949e110b",
+        "name": "Normalize",
+        "func": "const MAX = 300;\nlet p = msg.payload;\nif (p == null) return null;\nconst topic = msg.topic || \"\";\nconst {\n    type,\n    ts,\n    for: typeofop,\n    slotId,\n    reservationId = \"\",\n    ok = false,\n    publisherId = \"\"\n} = p;\nfunction gwFromTopic(t) {\n    const parts = String(t).split(\"/\");\n    return parts.length > 1 ? parts[1] : \"\";\n}\nif (type !== \"ACK\") return null;\n\n\nconst readablets = new Date(ts).toISOString().replace(\"T\", \" \").replace(\"Z\", \"\");\n\nconst row = {\n    ts: readablets,\n    gwId: gwFromTopic(topic),\n    type,\n    for: typeofop,\n    slotId,\n    reservationId,\n    ok: ok ? \"true\" : \"false\",\n    publisherId\n};\n\nlet rows = context.get(\"ackRows\") || [];\nrows = [row, ...rows];\nif (rows.length > MAX) rows = rows.slice(0, MAX);\n\ncontext.set(\"ackRows\", rows);\nmsg.payload = rows;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 80,
+        "wires": [
+            [
+                "aa245818dd1873e0"
+            ]
+        ]
+    },
+    {
+        "id": "aa245818dd1873e0",
+        "type": "ui_table",
+        "z": "d41148fb949e110b",
+        "group": "f175917b832b91f6",
+        "name": "Downlink ACKs",
+        "order": 2,
+        "width": "12",
+        "height": "7",
+        "columns": [
+            {
+                "field": "type",
+                "title": "Type",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "for",
+                "title": "For",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "ts",
+                "title": "Time",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "gwId",
+                "title": "GW",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "ok",
+                "title": "OK",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "slotId",
+                "title": "Slot",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "reservationId",
+                "title": "Reservation",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "publisherId",
+                "title": "Publisher",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 1120,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "97ff14e10dabcb82",
+        "type": "ui_button",
+        "z": "d41148fb949e110b",
+        "name": "",
+        "group": "f175917b832b91f6",
+        "order": 1,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Clear",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "delete_forever",
+        "payload": "\"clear\"",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 990,
+        "y": 20,
+        "wires": [
+            [
+                "dc68180181f301a9"
+            ]
+        ]
+    },
+    {
+        "id": "dc68180181f301a9",
+        "type": "function",
+        "z": "d41148fb949e110b",
+        "name": "clear ack",
+        "func": "context.set(\"ackRows\", []);\nmsg.payload = [];\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 20,
+        "wires": [
+            [
+                "aa245818dd1873e0"
+            ]
+        ]
+    },
+    {
+        "id": "c7ee777d4103f67e",
+        "type": "http in",
+        "z": "d41148fb949e110b",
+        "name": "HTTP IN - Leave",
+        "url": "/reservations/:reservationId/leave",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 680,
+        "wires": [
+            [
+                "65955d354b030e7b"
+            ]
+        ]
+    },
+    {
+        "id": "65955d354b030e7b",
+        "type": "function",
+        "z": "d41148fb949e110b",
+        "name": "Handle LEAVE",
+        "func": "const reservationId = msg.req?.params?.reservationId;\n\nif (!reservationId) {\n  msg.statusCode = 400;\n  msg.payload = { error: \"reservationId required\" };\n  return [null, msg];\n}\n\nconst admin = global.get(\"firebase_admin\");\nif (!admin) {\n  msg.statusCode = 500;\n  msg.payload = { error: \"Firebase Admin not initialized\" };\n  return [null, msg];\n}\nconst db = admin.firestore();\n\n(async () => {\n  try {\n    const resRef = db.collection(\"reservations\").doc(reservationId);\n\n    const snap = await resRef.get();\n    if (!snap.exists) {\n      msg.statusCode = 404;\n      msg.payload = { error: \"Reservation not found\" };\n      node.send([null, msg]);\n      return;\n    }\n\n    const { lotId, slotId } = snap.data() || {};\n\n\n    if (!lotId || !slotId) {\n      msg.statusCode = 500;\n      msg.payload = { error: \"Reservation missing lotId/slotId\" };\n      node.send([null, msg]);\n      return;\n    }\n\n    const lotRef = db.collection(\"parkingLots\").doc(lotId);\n    const slotRef = lotRef.collection(\"slots\").doc(slotId);\n\n    const lotSnap = await lotRef.get();\n    if (!lotSnap.exists) throw new Error(\"Parking lot not found\");\n    const gwId = (lotSnap.data() || {}).gwId;\n    if (!gwId) throw new Error(\"Lot missing gwId\");\n\n    await db.runTransaction((tx) => {\n      return tx.get(resRef).then((resSnap) => {\n        if (!resSnap.exists) {\n          const e = new Error(\"Reservation not found\");\n          e.code = 404;\n          throw e;\n        }\n\n        const r = resSnap.data() || {};\n\n        if (r.status !== \"occupied\") {\n          const e = new Error(\"Reservation is not in occupied state\");\n          e.code = 409;\n          throw e;\n        }\n\n        if (r.lotId !== lotId || r.slotId !== slotId) {\n          const e = new Error(\"Reservation lotId/slotId mismatch\");\n          e.code = 409;\n          throw e;\n        }\n\n        return tx.get(slotRef).then((slotSnap) => {\n          if (!slotSnap.exists) {\n            const e = new Error(\"Slot not found\");\n            e.code = 404;\n            throw e;\n          }\n\n          tx.update(resRef, {\n            status: \"completed\",\n            leftAt: admin.firestore.FieldValue.serverTimestamp(),\n            updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n          });\n\n          tx.update(slotRef, {\n            status: \"free\",\n            updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n          });\n\n          return true;\n        });\n      });\n    });\n\n    const mqttMsg = {\n      topic: `/${gwId}/down_link`,\n      payload: JSON.stringify({ type: \"LEAVE\", slotId }),\n    };\n\n    msg.statusCode = 200;\n    msg.payload = { status: \"left\", reservationId, lotId, slotId, gwId };\n\n    node.send([mqttMsg, msg]);\n  } catch (err) {\n    const code = err.code === 404 ? 404 : err.code === 409 ? 409 : 500;\n    node.error(\"LEAVE error: \" + (err.message || err), msg);\n    msg.statusCode = code;\n    msg.payload = { error: \"LEAVE failed: \" + (err.message || \"Unknown error\") };\n    node.send([null, msg]);\n  } finally {\n    node.done();\n  }\n})();\n\nreturn;\n",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 680,
+        "wires": [
+            [
+                "8e4cd35faa4214e8"
+            ],
+            [
+                "39ece0de341bab11"
+            ]
+        ]
+    },
+    {
+        "id": "39ece0de341bab11",
+        "type": "http response",
+        "z": "d41148fb949e110b",
+        "name": "HTTP Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 820,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "213818877fabe2a1",
+        "type": "http in",
+        "z": "d41148fb949e110b",
+        "name": "HTTP IN - Slot Out of Order",
+        "url": "/slots/:slotId/outoforder",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 760,
+        "wires": [
+            [
+                "df6f50e8ebb512bc"
+            ]
+        ]
+    },
+    {
+        "id": "df6f50e8ebb512bc",
+        "type": "function",
+        "z": "d41148fb949e110b",
+        "name": "Build OUT_OF_ORDER",
+        "func": "const slotId = msg.req?.params?.slotId;\n\nif (!slotId) {\n    msg.statusCode = 400;\n    msg.payload = { error: \"slotId required\" };\n    return [null, msg];\n}\n\nconst admin = global.get(\"firebase_admin\");\nif (!admin) {\n    msg.statusCode = 500;\n    msg.payload = { error: \"Firebase Admin not initialized\" };\n    return [null, msg];\n}\nconst db = admin.firestore();\n\n(async () => {\n    try {\n        const q = await db.collectionGroup(\"slots\").where(\"slotId\", \"==\", slotId).limit(1).get();\n        if (q.empty) {\n            msg.statusCode = 404;\n            msg.payload = { error: \"Slot not found\" };\n            node.send([null, msg]);\n            return;\n        }\n\n        const slotDoc = q.docs[0];\n        const slotRef = slotDoc.ref;\n        const lotRef = slotRef.parent.parent;\n        const lotId = lotRef?.id;\n\n        if (!lotId) throw new Error(\"Unable to derive lotId from slot document path\");\n\n        const lotSnap = await lotRef.get();\n        if (!lotSnap.exists) throw new Error(\"Parking lot not found\");\n\n        const gwId = (lotSnap.data() || {}).gwId;\n        if (!gwId) throw new Error(\"Lot missing gwId\");\n\n        await slotRef.set(\n            {\n                slotId,\n                status: \"out_of_order\",\n                updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n            },\n            { merge: true }\n        );\n\n        const mqttMsg = {\n            topic: `/${gwId}/down_link`,\n            payload: JSON.stringify( { type: \"OUT_OF_ORDER\", slotId }),\n        };\n        msg.statusCode = 200;\n        msg.payload = { status: \"out_of_order\", slotId, lotId, gwId };\n\n        node.send([mqttMsg, msg]);\n    } catch (err) {\n        node.error(\"OUT_OF_ORDER error: \" + err.message, msg);\n        msg.statusCode = 500;\n        msg.payload = { error: \"OUT_OF_ORDER failed: \" + err.message };\n        node.send([null, msg]);\n    } finally {\n        node.done();\n    }\n})();\n\nreturn;\n",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 760,
+        "wires": [
+            [
+                "8e4cd35faa4214e8"
+            ],
+            [
+                "7dd5780e32b6ec4f"
+            ]
+        ]
+    },
+    {
+        "id": "7dd5780e32b6ec4f",
+        "type": "http response",
+        "z": "d41148fb949e110b",
+        "name": "HTTP Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 820,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "f081c9d726a26565",
+        "type": "debug",
+        "z": "d41148fb949e110b",
+        "name": "ANPR result",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1490,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "1cb316950f0f15b2",
+        "type": "ui_dropdown",
+        "z": "c195c791176b5fba",
+        "name": "",
+        "label": "Range",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "ui_group_time_series",
+        "order": 2,
+        "width": "4",
+        "height": "1",
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": " Last 24h",
+                "value": "24h",
+                "type": "str"
+            },
+            {
+                "label": "Last 7 days",
+                "value": "7d",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "str",
+        "className": "",
+        "x": 70,
+        "y": 20,
+        "wires": [
+            [
+                "54a885b05cf421c2"
+            ]
+        ]
+    },
+    {
+        "id": "54a885b05cf421c2",
+        "type": "function",
+        "z": "c195c791176b5fba",
+        "name": "Set range",
+        "func": "const v = (msg.payload || \"24h\").toString();\nflow.set(\"exportRange\", (v === \"7d\") ? \"7d\" : \"24h\");\nreturn null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 20,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2b2234e219d8a274",
+        "type": "function",
+        "z": "c195c791176b5fba",
+        "name": "Build reservations created+expired",
+        "func": "const admin = global.get(\"firebase_admin\");\nif (!admin) { node.warn(\"Firebase Admin not initialized\"); return null; }\nconst db = admin.firestore();\n\nfunction toMs(v) {\n  if (v == null) return null;\n return v.toMillis(); \n\n}\n\n\nfunction startOfHourMs(ms) {\n  const d = new Date(ms);\n  d.setMinutes(0, 0, 0);\n  return d.getTime();\n}\n\n(async () => {\n  try {\n    const now = Date.now();\n    const h0 = startOfHourMs(now);\n    const h1 = h0 + 60 * 60 * 1000;\n    const snap = await db.collection(\"reservations\").get();\n\n    let createdCount = 0;\n    let expiredCount = 0;\n\n    snap.forEach(doc => {\n      const d = doc.data() || {};\n\n      const createdAtMs = toMs(d.createdAt);\n      if (createdAtMs != null && createdAtMs >= h0 && createdAtMs < h1) createdCount++;\n\n      const expiredAtMs = toMs(d.expiredAt);\n      if (expiredAtMs != null && expiredAtMs >= h0 && expiredAtMs < h1) expiredCount++;\n    });\n    const mCreated = { ...msg, topic: \"res_created\", payload: createdCount, timestamp: now, bucketStart: h0, bucket: \"hour\" };\n    const mExpired = { ...msg, topic: \"res_expired\", payload: expiredCount, timestamp: now, bucketStart: h0, bucket: \"hour\" };\n\n    node.send([mCreated, mExpired]);\n  } catch (e) {\n    node.error(\"Reservations TS build failed: \" + e.message, msg);\n  } finally {\n    node.done();\n  }\n})();\nreturn;\n",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 140,
+        "wires": [
+            [
+                "43a2f153c3ee5514"
+            ],
+            [
+                "43a2f153c3ee5514"
+            ]
+        ]
+    },
+    {
+        "id": "4dfaa90b0e766883",
+        "type": "ui_chart",
+        "z": "c195c791176b5fba",
+        "name": "",
+        "group": "ui_group_time_series",
+        "order": 6,
+        "width": "12",
+        "height": "4",
+        "label": "Reservations per hour",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "no data yet",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "",
+        "removeOlder": "24",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#ff7f0e",
+            "#2ca02c",
+            "#b92d5d",
+            "#98df8a",
+            "#ff7f0e",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 880,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "43a2f153c3ee5514",
+        "type": "function",
+        "z": "c195c791176b5fba",
+        "name": "Persist metric point",
+        "func": "const admin = global.get(\"firebase_admin\");\nif (!admin) { return msg; }\nconst db = admin.firestore();\n\nconst metric = msg.topic;\n\nconst ts = (typeof msg.bucketStart === \"number\") ? msg.bucketStart\n  : (typeof msg.timestamp === \"number\") ? msg.timestamp\n    : Date.now();\n\nconst value = (typeof msg.payload === \"number\") ? msg.payload : Number(msg.payload);\nconst bucket = msg.bucket || \"hour\";\n\n(async () => {\n  try {\n    if (!metric || !Number.isFinite(value)) return;\n\n    const docId = `${metric}_${ts}`;\n\n    await db.collection(\"metrics_points\").doc(docId).set({\n      metric,\n      ts,         \n      value,\n      bucket\n    }, { merge: true });\n\n  } catch (e) {\n    node.warn(\"Persist metric failed: \" + e.message);\n  }\n})();\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 140,
+        "wires": [
+            [
+                "4dfaa90b0e766883"
+            ]
+        ]
+    },
+    {
+        "id": "c6ed8a4453b66c29",
+        "type": "inject",
+        "z": "c195c791176b5fba",
+        "name": "Poll (5s)",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "auto",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 140,
+        "wires": [
+            [
+                "2b2234e219d8a274"
+            ]
+        ]
+    },
+    {
+        "id": "a1592f7d6d1bb685",
+        "type": "ui_template",
+        "z": "c195c791176b5fba",
+        "group": "ui_group_time_series",
+        "name": "",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "format": "<script>\n    (function(scope){\n  scope.$watch('msg', function(msg){\n    if(!msg) return;\n    if(!msg.doDownload) return;\n    var r = (msg.range || '24h').toString().trim();\n\n    window.open(\"/export/metrics.json?range=\" +r, \"_blank\");\n  });\n})(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 640,
+        "y": 20,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b9e1a8609811b08a",
+        "type": "ui_button",
+        "z": "c195c791176b5fba",
+        "name": "",
+        "group": "ui_group_time_series",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Download",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "file_download",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 340,
+        "y": 20,
+        "wires": [
+            [
+                "6b9aa5691303c4bf"
+            ]
+        ]
+    },
+    {
+        "id": "6b9aa5691303c4bf",
+        "type": "function",
+        "z": "c195c791176b5fba",
+        "name": "Attach range",
+        "func": "const r = flow.get(\"exportRange\") || \"24h\";\nmsg.range = r;\nmsg.doDownload = true;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 20,
+        "wires": [
+            [
+                "a1592f7d6d1bb685"
+            ]
+        ]
+    },
+    {
+        "id": "a6b345ca09f80534",
+        "type": "function",
+        "z": "c195c791176b5fba",
+        "name": "Export metrics",
+        "func": "const admin = global.get(\"firebase_admin\");\nif (!admin) {\n    msg.statusCode = 500;\n    msg.payload = { error: \"Firebase Admin not initialized\" };\n    return msg;\n}\nconst db = admin.firestore();\n\nconst range = (msg.req?.query?.range || \"24h\").toString().toLowerCase();\nconst now = Date.now();\nconst ms = (range === \"7d\") ? (7 * 24 * 60 * 60 * 1000) : (24 * 60 * 60 * 1000);\nconst since = now - ms;\n\nconst metrics = [\n    \"stale_slots\", \"stale_gws\", \"mismatch_slots\",\n    \"res_created\", \"res_expired\"\n];\n\n(async () => {\n    try {\n        const out = {\n            exportedAt: new Date(now).toISOString(),\n            range,\n            since,\n            until: now,\n            metrics_points: []\n        };\n\n        for (const m of metrics) {\n            const snap = await db.collection(\"metrics_points\")\n                .where(\"metric\", \"==\", m)\n                .where(\"ts\", \">=\", since)\n                .orderBy(\"ts\", \"asc\")\n                .get();\n\n            snap.forEach(doc => {\n                const d = doc.data() || {};\n                out.metrics_points.push({\n                    metric: d.metric,\n                    ts: d.ts,\n                    iso: new Date(d.ts).toISOString() ,\n                    value: d.value,\n                    bucket: d.bucket || null,\n                    meta: d.meta || null\n                });\n            });\n        }\n\n        out.metrics_points.sort((a, b) => (a.ts - b.ts) || (a.metric > b.metric ? 1 : -1));\n\n        msg.statusCode = 200;\n        msg.headers = {\n            \"Content-Type\": \"application/json; charset=utf-8\",\n            \"Content-Disposition\": `attachment; filename=\"metrics_${range}_${new Date(now).toISOString().slice(0, 19).replace(/[:T]/g, '-')}.json\"`\n        };\n        msg.payload = JSON.stringify(out, null, 2);\n        node.send(msg);\n    } catch (e) {\n        msg.statusCode = 500;\n        msg.payload = { error: e.message };\n        node.send(msg);\n    } finally {\n        node.done();\n    }\n})();\nreturn;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 20,
+        "wires": [
+            [
+                "6114d9ce3020034e"
+            ]
+        ]
+    },
+    {
+        "id": "e16dfacb1b02829c",
+        "type": "http in",
+        "z": "c195c791176b5fba",
+        "name": "HTTP IN - Export",
+        "url": "/export/metrics.json",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 800,
+        "y": 20,
+        "wires": [
+            [
+                "a6b345ca09f80534"
+            ]
+        ]
+    },
+    {
+        "id": "6114d9ce3020034e",
+        "type": "http response",
+        "z": "c195c791176b5fba",
+        "name": "HTTP Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 1240,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "fe1228b7c34402c6",
+        "type": "ui_button",
+        "z": "c195c791176b5fba",
+        "name": "Refresh Stale TS",
+        "group": "ui_group_time_series",
+        "order": 1,
+        "width": "3",
+        "height": 1,
+        "passthru": false,
+        "label": "Refresh",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "refresh",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "refresh",
+        "topicType": "msg",
+        "x": 110,
+        "y": 220,
+        "wires": [
+            [
+                "62234f00d752af7c",
+                "2b2234e219d8a274"
+            ]
+        ]
+    },
+    {
+        "id": "5b9287d216f10857",
+        "type": "inject",
+        "z": "c195c791176b5fba",
+        "name": "Poll Stale (10m)",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "600",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "auto",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 280,
+        "wires": [
+            [
+                "62234f00d752af7c"
+            ]
+        ]
+    },
+    {
+        "id": "62234f00d752af7c",
+        "type": "function",
+        "z": "c195c791176b5fba",
+        "name": "Build stale+ mismatch locks/gateways",
+        "func": "const admin = global.get(\"firebase_admin\");\nif (!admin) {\n  node.warn(\"Firebase Admin not initialized\");\n  return null;\n}\nconst db = admin.firestore();\n\nconst STALE_MS = 2 * 60 * 1000; \n\n(async () => {\n  try {\n    const now = Date.now();\n    const slotsSnap = await db.collectionGroup(\"slots\").get();\n    let totalSlots = 0;\n    let staleSlots = 0;\n    let mismatchSlots = 0;\n\n    slotsSnap.forEach(doc => {\n      totalSlots++;\n      const d = doc.data() || {};\n\n     \n      const lastHb = d.lastHeartbeatDeviceTs;\n      const isStale = (lastHb == null) ? true : ((now - lastHb) > STALE_MS);\n      if (isStale) staleSlots++;\n\n      const mismatchLockStatus =\n        d.reportedLockStatus != null && d.lockStatus != null && d.reportedLockStatus !== d.lockStatus;\n      const mismatchArmPosition = (d.reportedArmPosition != null && d.armPosition != null && d.reportedArmPosition !== d.armPosition);\n      const mismatchBattery =\n        d.reportedBattery != null && d.battery != null && d.reportedBattery !== d.battery;\n      const isMismatch = !!(mismatchLockStatus || mismatchArmPosition || mismatchBattery);\n      if (isMismatch) mismatchSlots++;\n    });\n\n    const lotsSnap = await db.collection(\"parkingLots\").get();\n    let totalGws = 0;\n    let staleGws = 0;\n\n    lotsSnap.forEach(doc => {\n      totalGws++;\n      const d = doc.data() || {};\n      const lastHb = d.lastHeartbeatDeviceTs;\n      const isStale = (lastHb == null) ? true : ((now - lastHb) > STALE_MS);\n      if (isStale) staleGws++;\n    });\n\n    const m1 = { ...msg, topic: \"stale_slots\", payload: staleSlots, timestamp: now };\n    const m2 = { ...msg, topic: \"stale_gws\", payload: staleGws, timestamp: now };\n    const m3 = { ...msg, topic: \"mismatch_slots\", payload: mismatchSlots, timestamp: now };\n\n\n    const meta = { now, staleMs: STALE_MS, totalSlots, staleSlots, mismatchSlots, totalGws, staleGws };\n    m1.meta = meta;\n    m2.meta = meta;\n    m3.meta = meta;\n\n    node.send([m1, m2, m3]);\n  } catch (e) {\n    node.error(\"Health TS build failed: \" + e.message, msg);\n  } finally {\n    node.done();\n  }\n})();\n\nreturn;\n",
+        "outputs": 3,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 240,
+        "wires": [
+            [
+                "487fa68ba97bd0f0"
+            ],
+            [
+                "487fa68ba97bd0f0"
+            ],
+            [
+                "487fa68ba97bd0f0"
+            ]
+        ]
+    },
+    {
+        "id": "1da0fb50195a25be",
+        "type": "ui_chart",
+        "z": "c195c791176b5fba",
+        "name": "",
+        "group": "ui_group_time_series",
+        "order": 5,
+        "width": 12,
+        "height": 4,
+        "label": "Stale devices over time",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "No data yet",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#ff7f0e",
+            "#2ca02c",
+            "#d62728",
+            "#9467bd",
+            "#8c564b",
+            "#e377c2",
+            "#7f7f7f",
+            "#aec7e8"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 982,
+        "y": 251,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "487fa68ba97bd0f0",
+        "type": "function",
+        "z": "c195c791176b5fba",
+        "name": "Persist metric point",
+        "func": "const admin = global.get(\"firebase_admin\");\nif (!admin) { return msg; }\nconst db = admin.firestore();\n\nconst metric = msg.topic;\nconst ts = (typeof msg.timestamp === \"number\") ? msg.timestamp : Date.now();\nconst value = (typeof msg.payload === \"number\") ? msg.payload : Number(msg.payload);\n\nconst bucket = msg.bucket || \"10m\";\n\n(async () => {\n  try {\n    if (!metric || !Number.isFinite(value)) return;\n\n    const docId = `${metric}_${ts}`;\n    await db.collection(\"metrics_points\").doc(docId).set({\n      metric,\n      ts,\n      value,\n      bucket,\n      meta: msg.meta || null\n    }, { merge: true });\n\n  } catch (e) {\n    node.warn(\"Persist metric failed: \" + e.message);\n  }\n})();\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 742,
+        "y": 251,
+        "wires": [
+            [
+                "1da0fb50195a25be"
+            ]
+        ]
+    },
+    {
+        "id": "294845e24897cd39",
+        "type": "ui_button",
+        "z": "c195c791176b5fba",
+        "name": "Refresh Parking Overview",
+        "group": "ui_group_kpis",
+        "order": 1,
+        "width": "3",
+        "height": 1,
+        "passthru": false,
+        "label": "Refresh",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "refresh",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "refresh",
+        "topicType": "msg",
+        "x": 130,
+        "y": 380,
+        "wires": [
+            [
+                "168ddfd3040d83cf"
+            ]
+        ]
+    },
+    {
+        "id": "9415051ced104216",
+        "type": "inject",
+        "z": "c195c791176b5fba",
+        "name": "Poll Parking Overview(5s)",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.5,
+        "topic": "refresh",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 440,
+        "wires": [
+            [
+                "168ddfd3040d83cf"
+            ]
+        ]
+    },
+    {
+        "id": "90be87a48c98f2fe",
+        "type": "ui_template",
+        "z": "c195c791176b5fba",
+        "group": "ui_group_kpis",
+        "name": "Parking Overview Cards",
+        "order": 2,
+        "width": 12,
+        "height": "7",
+        "format": "<div style=\"display:flex; flex-wrap:wrap; gap:10px;\">\n\n  <div style=\"flex:1; min-width:160px; border:1px solid #ddd; border-radius:8px; padding:10px;\">\n    <div style=\"font-size:12px; color:#666;\">Slots · Free</div>\n    <div style=\"font-size:28px; font-weight:700;\">{{(msg.payload && msg.payload.slot) ? msg.payload.slot.free : 0}}</div>\n  </div>\n\n  <div style=\"flex:1; min-width:160px; border:1px solid #ddd; border-radius:8px; padding:10px;\">\n    <div style=\"font-size:12px; color:#666;\">Slots · Reserved</div>\n    <div style=\"font-size:28px; font-weight:700;\">{{(msg.payload && msg.payload.slot) ? msg.payload.slot.reserved : 0}}</div>\n  </div>\n\n  <div style=\"flex:1; min-width:160px; border:1px solid #ddd; border-radius:8px; padding:10px;\">\n    <div style=\"font-size:12px; color:#666;\">Slots · Occupied</div>\n    <div style=\"font-size:28px; font-weight:700;\">{{(msg.payload && msg.payload.slot) ? msg.payload.slot.occupied : 0}}</div>\n  </div>\n\n  <div style=\"flex:1; min-width:160px; border:1px solid #ddd; border-radius:8px; padding:10px;\">\n    <div style=\"font-size:12px; color:#666;\">Slots · Out of order</div>\n    <div style=\"font-size:28px; font-weight:700;\">{{(msg.payload && msg.payload.slot) ? msg.payload.slot.out_of_order : 0}}</div>\n  </div>\n\n  <div style=\"flex:1; min-width:180px; border:1px solid #ddd; border-radius:8px; padding:10px;\">\n    <div style=\"font-size:12px; color:#666;\">Reservations · Active now</div>\n    <div style=\"font-size:28px; font-weight:700;\">{{(msg.payload && msg.payload.reservations) ? msg.payload.reservations.activeNow : 0}}</div>\n  </div>\n\n  <div style=\"flex:1; min-width:180px; border:1px solid #ddd; border-radius:8px; padding:10px;\">\n    <div style=\"font-size:12px; color:#666;\">Reservations · Expired today</div>\n    <div style=\"font-size:28px; font-weight:700;\">{{(msg.payload && msg.payload.reservations) ? msg.payload.reservations.expiredToday : 0}}</div>\n  </div>\n\n  <div style=\"flex:1; min-width:180px; border:1px solid #ddd; border-radius:8px; padding:10px;\">\n    <div style=\"font-size:12px; color:#666;\">Reservations · Cancelled today</div>\n    <div style=\"font-size:28px; font-weight:700;\">{{(msg.payload && msg.payload.reservations) ? msg.payload.reservations.cancelledToday : 0}}</div>\n  </div>\n\n</div>\n\n<div style=\"margin-top:8px; font-size:11px; color:#777;\">\n  Updated: {{(msg.payload && msg.payload.ts) ? (msg.payload.ts | date:'yyyy-MM-dd HH:mm:ss') : ''}}\n</div>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 710,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "168ddfd3040d83cf",
+        "type": "function",
+        "z": "c195c791176b5fba",
+        "name": "Build Parking Overview",
+        "func": "const admin = global.get('firebase_admin');\nif (!admin) {\n  node.warn('Firebase Admin not initialized');\n  return null;\n}\nconst db = admin.firestore();\n\n\nfunction toMs(v) {\n  if (v == null) return null;\n  return v.toMillis();\n}\n\nfunction startOfTodayMs() {\n  const d = new Date();\n  d.setHours(0, 0, 0, 0);\n  return d.getTime();\n}\n\n(async () => {\n  try {\n    const now = Date.now();\n    const today0 = startOfTodayMs();\n\n    const slotSnap = await db.collectionGroup('slots').get();\n\n    let free = 0, reserved = 0, occupied = 0, out_of_order = 0;\n\n    slotSnap.forEach(doc => {\n      const d = doc.data() || {};\n      const s = d.status;\n\n      if (s === 'free') free++;\n      else if (s === 'reserved' || s === 'reserving') reserved++;\n      else if (s === 'occupied') occupied++;\n      else if (s === 'out_of_order') out_of_order++;\n    });\n\n    //admin.firestore.Timestamp.fromMillis(\n    let activeNow = 0;\n    try {\n      const qActive = db.collection('reservations').where('status', 'in', ['active', 'occupied']);\n      const aSnap = await qActive.get();\n      activeNow = aSnap.size;\n    } catch (e) {\n      node.warn(\"Query failed: \" + e.message);\n    }\n\n    let expiredToday = 0;\n    try {\n      const qExp = db.collection('reservations')\n        .where('status', '==', 'expired')\n        .where('expiredAt', '>=', new Date(today0));\n      const eSnap = await qExp.get();\n      expiredToday = eSnap.size;\n    } catch (e) {\n      node.warn(\"Query failed: \" + e.message);\n    }\n\n    let cancelledToday = 0;\n    try {\n      const qCan = db.collection('reservations')\n        .where('status', '==', 'cancelled')\n        .where('cancelledAt', '>=', new Date(today0));\n      const cSnap = await qCan.get();\n      cancelledToday = cSnap.size;\n    } catch (e) {\n      node.warn(\"Query failed: \" + e.message);\n    }\n\n    msg.payload = {\n      slot: { free, reserved, occupied, out_of_order },\n      reservations: { activeNow, expiredToday, cancelledToday },\n      ts: now\n    };\n\n    node.send(msg);\n  } catch (err) {\n    node.error('Parking Overview query failed: ' + err.message, msg);\n  } finally {\n    node.done();\n  }\n})();\n\nreturn;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 400,
+        "wires": [
+            [
+                "90be87a48c98f2fe"
+            ]
+        ]
+    },
+    {
+        "id": "6f982141bb4213e4",
+        "type": "inject",
+        "z": "c195c791176b5fba",
+        "name": "Poll slots (5s)",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.5,
+        "topic": "refresh",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 520,
+        "wires": [
+            [
+                "4ab591e38f85bad3"
+            ]
+        ]
+    },
+    {
+        "id": "f0b7633954d16b20",
+        "type": "ui_button",
+        "z": "c195c791176b5fba",
+        "name": "Refresh",
+        "group": "ui_group_slots_live",
+        "order": 1,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Refresh",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "refresh",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "refresh",
+        "topicType": "msg",
+        "x": 100,
+        "y": 580,
+        "wires": [
+            [
+                "4ab591e38f85bad3"
+            ]
+        ]
+    },
+    {
+        "id": "4ab591e38f85bad3",
+        "type": "function",
+        "z": "c195c791176b5fba",
+        "name": "Build Slots Live View",
+        "func": "const admin = global.get(\"firebase_admin\");\nif (!admin) {\n  node.warn(\"Firebase Admin not initialized\");\n  return null;\n}\nconst db = admin.firestore();\n\nconst STALE_MS = 2 * 60 * 1000;\n\n(async () => {\n  try {\n    const lotsSnap = await db.collection(\"parkingLots\").get();\n    const lotToGw = {};\n    lotsSnap.forEach(doc => {\n      const d = doc.data() || {};\n      lotToGw[doc.id] = d.gwId || \"\";\n    });\n\n    const slotsSnap = await db.collectionGroup(\"slots\").get();\n    const now = Date.now();\n    const rows = [];\n\n    slotsSnap.forEach(doc => {\n      const d = doc.data() || {};\n\n      const slotId = d.slotId || doc.id;\n      const lotId = doc.ref.parent?.parent?.id || \"\";\n      const gwId = lotToGw[lotId] || \"\";\n\n      const lastHb = (typeof d.lastHeartbeatDeviceTs === \"number\") ? d.lastHeartbeatDeviceTs : null;\n      const ageMs = (lastHb != null) ? (now - lastHb) : null;\n      const stale = (ageMs != null) ? (ageMs > STALE_MS) : true;\n\n      const mismatchLockStatus =\n        d.reportedLockStatus != null && d.lockStatus != null && d.reportedLockStatus !== d.lockStatus;\n      const mismatchArmPosition =\n        d.reportedArmPosition != null && d.armPosition != null && d.reportedArmPosition !== d.armPosition;\n      const mismatchBattery =\n        d.reportedBattery != null && d.battery != null && d.reportedBattery !== d.battery;\n\n      const mismatch = !!(mismatchLockStatus || mismatchArmPosition || mismatchBattery);\n\n      const flags =\n        (stale && mismatch) ? \"STALE · MISMATCH\" :\n        stale ? \"STALE\" :\n        mismatch ? \"MISMATCH\" :\n        \"\";\n\n      rows.push({\n        lotId,\n        gwId,\n        slotId,\n        lockId: d.lockId ?? \"\",\n        status: d.status ?? \"\",\n        lockStatus: d.lockStatus ?? \"\",\n        sensor: d.sensor ?? \"\",\n        armPosition: d.armPosition ?? \"\",\n        battery: (typeof d.battery === \"number\") ? d.battery : \"\",\n        magnetic: (typeof d.magnetic === \"boolean\") ? (d.magnetic ? \"true\" : \"false\") : \"\",\n        proximity: (typeof d.proximity === \"boolean\") ? (d.proximity ? \"true\" : \"false\") : \"\",\n        reportedLockStatus: d.reportedLockStatus ?? \"\",\n        reportedArmPosition: d.reportedArmPosition ?? \"\",\n        reportedBattery: (typeof d.reportedBattery === \"number\") ? d.reportedBattery : \"\",\n        heartbeatAgeSec: (ageMs != null) ? Math.floor(ageMs / 1000) : \"\",\n        stale,\n        mismatch,\n        flags,\n      });\n    });\n\n    msg.ui_control = msg.ui_control || {};\n    msg.ui_control.tabulator = msg.ui_control.tabulator || {};\n    \n    msg.ui_control.tabulator.columns = [\n      { title: \"LOT\", field: \"lotId\", headerFilter: \"input\", width: 160 },\n      { title: \"GW\", field: \"gwId\", headerFilter: \"input\", width: 110 },\n      { title: \"SLOT\", field: \"slotId\", headerFilter: \"input\", width: 90 },\n      { title: \"LOCK\", field: \"lockId\", headerFilter: \"input\", width: 90 },\n\n      { title: \"status\", field: \"status\", headerFilter: \"input\", width: 110 },\n      { title: \"lockStatus\", field: \"lockStatus\", headerFilter: \"input\", width: 120 },\n      { title: \"sensor\", field: \"sensor\", headerFilter: \"input\", width: 100 },\n      { title: \"arm\", field: \"armPosition\", headerFilter: \"input\", width: 90 },\n      { title: \"bat\", field: \"battery\", sorter: \"number\", hozAlign: \"right\", width: 70 },\n      { title: \"mag\", field: \"magnetic\", headerFilter: \"input\", width: 70 },\n      { title: \"prox\", field: \"proximity\", headerFilter: \"input\", width: 70 },\n\n      { title: \"rep.lockStatus\", field: \"reportedLockStatus\", headerFilter: \"input\", width: 140 },\n      { title: \"rep.arm\", field: \"reportedArmPosition\", headerFilter: \"input\", width: 110 },\n      { title: \"rep.bat\", field: \"reportedBattery\", sorter: \"number\", hozAlign: \"right\", width: 90 },\n\n      { title: \"hbAge(s)\", field: \"heartbeatAgeSec\", sorter: \"number\", hozAlign: \"right\", width: 90 },\n      { title: \"flags\", field: \"flags\", headerFilter: \"input\", width: 140 }\n    ];\n\n    msg.ui_control.tabulator.layout = \"fitColumns\";\n    msg.ui_control.tabulator.movableColumns = true;\n    msg.ui_control.tabulator.pagination = \"local\";\n    msg.ui_control.tabulator.paginationSize = 12;\n    msg.ui_control.tabulator.rowFormatter =\n      \"function(row){var d=row.getData(); if(d.stale){row.getElement().style.backgroundColor='#ffecec'; return;} if(d.mismatch){row.getElement().style.backgroundColor='#fff7e6'; return;}}\";\n    flow.set(\"slotsLiveRows\", rows);\n    flow.set(\"slotsLiveUpdatedAt\", Date.now());\n    msg.payload = rows;\n    node.send(msg);\n  } catch (err) {\n    node.error(\"Slots Live View query failed: \" + err.message, msg);\n  } finally {\n    node.done();\n  }\n})();\n\nreturn;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 540,
+        "wires": [
+            [
+                "f9cdf39e8a9f175c"
+            ]
+        ]
+    },
+    {
+        "id": "f9cdf39e8a9f175c",
+        "type": "ui_table",
+        "z": "c195c791176b5fba",
+        "group": "ui_group_slots_live",
+        "name": "Slots Live View",
+        "order": 2,
+        "width": "24",
+        "height": "7",
+        "columns": [],
+        "outputs": 0,
+        "cts": false,
+        "x": 580,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "063ff8b186cc84b9",
+        "type": "http in",
+        "z": "c195c791176b5fba",
+        "name": "HTTP IN - Export",
+        "url": "/export/reservations-live.json",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 820,
+        "y": 680,
+        "wires": [
+            [
+                "225468f069a3e141"
+            ]
+        ]
+    },
+    {
+        "id": "225468f069a3e141",
+        "type": "function",
+        "z": "c195c791176b5fba",
+        "name": "Export Reservations Live",
+        "func": "\nconst rows = flow.get(\"resLiveRows\") || [];\nconst ts = flow.get(\"resLiveUpdatedAt\") || null;\n\nmsg.statusCode = 200;\nmsg.headers = {\n    \"Content-Type\": \"application/json; charset=utf-8\",\n    \"Content-Disposition\": `attachment; filename=\"reservations_live_${new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-')}.json\"`\n};\nmsg.payload = JSON.stringify({ exportedAt: new Date().toISOString(), updatedAt: ts, rows }, null, 2);\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1050,
+        "y": 680,
+        "wires": [
+            [
+                "4f2f93eea0f4b65d"
+            ]
+        ]
+    },
+    {
+        "id": "4f2f93eea0f4b65d",
+        "type": "http response",
+        "z": "c195c791176b5fba",
+        "name": "HTTP Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 1260,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "14ed74503f58ce6b",
+        "type": "inject",
+        "z": "c195c791176b5fba",
+        "name": "Poll reservations (5s)",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.5,
+        "topic": "refresh",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 660,
+        "wires": [
+            [
+                "8b086addab3a3ca4"
+            ]
+        ]
+    },
+    {
+        "id": "8efaf8c4a641e25d",
+        "type": "ui_button",
+        "z": "c195c791176b5fba",
+        "name": "Refresh",
+        "group": "826884dd6b30bcb3",
+        "order": 1,
+        "width": "3",
+        "height": 1,
+        "passthru": false,
+        "label": "Refresh",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "refresh",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "refresh",
+        "topicType": "msg",
+        "x": 130,
+        "y": 710,
+        "wires": [
+            [
+                "8b086addab3a3ca4"
+            ]
+        ]
+    },
+    {
+        "id": "8b086addab3a3ca4",
+        "type": "function",
+        "z": "c195c791176b5fba",
+        "name": "Build Reservations Live",
+        "func": "const admin = global.get('firebase_admin');\nif (!admin) {\n  node.warn('Firebase Admin not initialized');\n  return null;\n}\nconst db = admin.firestore();\n\nfunction toMs(v) {\n  if (v == null) return null;\n  return v.toMillis();\n}\n(async () => {\n  try {\n    const now = Date.now();\n\n    const q = db.collection('reservations').where('status', 'in', ['active', 'occupied']);\n    const snap = await q.get();\n\n    const rows = [];\n    snap.forEach(doc => {\n      const d = doc.data() || {};\n\n      const createdAtMs = toMs(d.createdAt);\n      const startAtMs = toMs(d.startAt);\n      const expiresAtMs = toMs(d.expiresAt);\n\n      const timeLeftMs = (expiresAtMs != null) ? (expiresAtMs - now) : null;\n      const timeLeftMin = (timeLeftMs != null) ? Math.floor(timeLeftMs / 60000) : '';\n\n      const expired = (timeLeftMs != null) ? (timeLeftMs <= 0) : false;\n      const expSoon = (timeLeftMs != null) ? (timeLeftMs > 0 && timeLeftMs <= 5 * 60 * 1000) : false;\n      const noExpiry = (expiresAtMs == null);\n\n      const flags =\n        noExpiry ? 'NO EXPIRY' :\n          expired ? 'EXPIRED' :\n            expSoon ? '< 5 MIN' :\n              '';\n\n      rows.push({\n        reservationId: doc.id,\n\n        userId: d.userId || '',\n        lotId: d.lotId || '',\n        slotId: d.slotId || '',\n        status: d.status || '',\n\n        plate: d.plateNumber || d.expectedPlate || '',\n        anprVerified: (typeof d.anprVerified === 'boolean') ? d.anprVerified : '',\n\n        timeLeftMin,\n        flags,\n        createdAtMs: createdAtMs || '',\n        startAtMs: startAtMs || '',\n        expiresAtMs: expiresAtMs || '',\n        expired,\n        expSoon,\n        noExpiry,\n      });\n    });\n    rows.sort((a, b) => {\n      if (a.expired !== b.expired) return a.expired ? -1 : 1;\n      if (a.expSoon !== b.expSoon) return a.expSoon ? -1 : 1;\n\n      const ta = (typeof a.timeLeftMin === 'number') ? a.timeLeftMin : 999999;\n      const tb = (typeof b.timeLeftMin === 'number') ? b.timeLeftMin : 999999;\n      if (ta !== tb) return ta - tb;\n\n      const ca = (typeof a.createdAtMs === 'number') ? a.createdAtMs : 0;\n      const cb = (typeof b.createdAtMs === 'number') ? b.createdAtMs : 0;\n      return cb - ca;\n    });\n\n    msg.ui_control = msg.ui_control || {};\n    msg.ui_control.tabulator = msg.ui_control.tabulator || {};\n\n    msg.ui_control.tabulator.columns = [\n      { title: \"reservationId\", field: \"reservationId\", headerFilter: \"input\", width: 220 },\n      { title: \"userId\", field: \"userId\", headerFilter: \"input\", width: 150 },\n      { title: \"lot\", field: \"lotId\", headerFilter: \"input\", width: 90 },\n      { title: \"slot\", field: \"slotId\", headerFilter: \"input\", width: 80 },\n      { title: \"status\", field: \"status\", headerFilter: \"input\", width: 110 },\n\n      { title: \"plate\", field: \"plate\", headerFilter: \"input\", width: 140 },\n      { title: \"anpr\", field: \"anprVerified\", headerFilter: true, width: 90 },\n\n      { title: \"timeLeft (min)\", field: \"timeLeftMin\", sorter: \"number\", hozAlign: \"right\", width: 140 },\n      { title: \"flags\", field: \"flags\", headerFilter: \"input\", width: 120 }\n    ];\n\n    msg.ui_control.tabulator.layout = \"fitColumns\";\n    msg.ui_control.tabulator.movableColumns = true;\n    msg.ui_control.tabulator.pagination = \"local\";\n    msg.ui_control.tabulator.paginationSize = 10;\nmsg.ui_control.tabulator.rowFormatter =\n      \"function(row){var d=row.getData(); if(d.expired){row.getElement().style.backgroundColor='#ffecec'; return;} if(d.expSoon){row.getElement().style.backgroundColor='#fff7e6'; return;}}\";\n\n    flow.set(\"resLiveRows\", rows);\n    flow.set(\"resLiveUpdatedAt\", Date.now());\n\n    msg.payload = rows;\n    node.send(msg);\n  } catch (err) {\n    node.error('Reservations Live query failed: ' + err.message, msg);\n  } finally {\n    node.done();\n  }\n})();\n\nreturn;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 680,
+        "wires": [
+            [
+                "50f7e5fac587bc63"
+            ]
+        ]
+    },
+    {
+        "id": "50f7e5fac587bc63",
+        "type": "ui_table",
+        "z": "c195c791176b5fba",
+        "group": "826884dd6b30bcb3",
+        "name": "Reservations Live",
+        "order": 2,
+        "width": "24",
+        "height": "7",
+        "columns": [],
+        "outputs": 0,
+        "cts": false,
+        "x": 630,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "bef33fca90303819",
+        "type": "ui_template",
+        "z": "c195c791176b5fba",
+        "group": "826884dd6b30bcb3",
+        "name": "",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "format": "<script>\n  (function(scope){\n  scope.$watch('msg', function(msg){\n    if(!msg) return;\n    if(msg.payload !== \"download\") return;\n    window.open(\"/export/reservations-live.json\", \"_blank\");\n  });\n})(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1000,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ba1d644a66374cca",
+        "type": "ui_button",
+        "z": "c195c791176b5fba",
+        "name": "",
+        "group": "826884dd6b30bcb3",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Download",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "file_download",
+        "payload": "download",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 800,
+        "y": 640,
+        "wires": [
+            [
+                "bef33fca90303819"
+            ]
+        ]
+    },
+    {
+        "id": "2af773823add57da",
+        "type": "http in",
+        "z": "c195c791176b5fba",
+        "name": "HTTP IN - Export",
+        "url": "/export/slots-live.json",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 760,
+        "y": 540,
+        "wires": [
+            [
+                "8c4880782de6def5"
+            ]
+        ]
+    },
+    {
+        "id": "8c4880782de6def5",
+        "type": "function",
+        "z": "c195c791176b5fba",
+        "name": "Export Slots Live",
+        "func": "\nconst rows = flow.get(\"slotsLiveRows\") || [];\nconst ts = flow.get(\"slotsLiveUpdatedAt\") || null;\n\nmsg.statusCode = 200;\nmsg.headers = {\n    \"Content-Type\": \"application/json; charset=utf-8\",\n    \"Content-Disposition\": `attachment; filename=\"slots_live_${new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-')}.json\"`\n};\nmsg.payload = JSON.stringify({ exportedAt: new Date().toISOString(), updatedAt: ts, rows }, null, 2);\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 540,
+        "wires": [
+            [
+                "41265a4f08f98d41"
+            ]
+        ]
+    },
+    {
+        "id": "41265a4f08f98d41",
+        "type": "http response",
+        "z": "c195c791176b5fba",
+        "name": "HTTP Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 1220,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "e1579b45b9fe397e",
+        "type": "ui_template",
+        "z": "c195c791176b5fba",
+        "group": "ui_group_slots_live",
+        "name": "",
+        "order": 2,
+        "width": "4",
+        "height": "1",
+        "format": "<script>\n  (function(scope){\n  scope.$watch('msg', function(msg){\n    if(!msg) return;\n    if(msg.payload !== \"download\") return;\n    window.open(\"/export/slots-live.json\", \"_blank\");\n  });\n})(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 940,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e578a38791409803",
+        "type": "ui_button",
+        "z": "c195c791176b5fba",
+        "name": "",
+        "group": "ui_group_slots_live",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Download",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "file_download",
+        "payload": "download",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 740,
+        "y": 500,
+        "wires": [
+            [
+                "e1579b45b9fe397e"
+            ]
+        ]
+    }
+]
