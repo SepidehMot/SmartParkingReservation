@@ -33,6 +33,7 @@ export default function ReservationsPage() {
   const slotRef = useRef(null);
   const activeResRef = useRef(null);
   const hasAutoArrivedRef = useRef(false);
+  const [userPos, setUserPos] = useState(null);
 
   useEffect(() => {
     activeResRef.current = activeRes || null;
@@ -66,13 +67,13 @@ export default function ReservationsPage() {
       const q = query(
         collection(db, "reservations"),
         where("userId", "==", u.uid),
-        orderBy("createdAt", "desc")
+        orderBy("createdAt", "desc"),
       );
 
       if (unsubReservations) unsubReservations();
       unsubReservations = onSnapshot(q, (snap) => {
         setReservations(
-          snap.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+          snap.docs.map((doc) => ({ id: doc.id, ...doc.data() })),
         );
         setLoading(false);
       });
@@ -135,7 +136,7 @@ export default function ReservationsPage() {
     const watchId = navigator.geolocation.watchPosition(
       (pos) => {
         const { latitude, longitude } = pos.coords;
-
+        setUserPos({ lat: latitude, lng: longitude });
         const r = activeResRef.current;
         if (!r || r.status !== "active") return;
         if (hasAutoArrivedRef.current) return;
@@ -169,8 +170,8 @@ export default function ReservationsPage() {
             .then(() => {
               setReservations((prev) =>
                 prev.map((res) =>
-                  res.id === r.id ? { ...res, status: "occupied" } : res
-                )
+                  res.id === r.id ? { ...res, status: "occupied" } : res,
+                ),
               );
             })
             .catch(() => {
@@ -179,11 +180,29 @@ export default function ReservationsPage() {
         }
       },
       (err) => console.warn("GPS error:", err.code, err.message, err),
-      { enableHighAccuracy: true, maximumAge: 5000, timeout: 10000 }
+      { enableHighAccuracy: true, maximumAge: 5000, timeout: 10000 },
     );
 
     return () => navigator.geolocation.clearWatch(watchId);
   }, []);
+  function handleNavigate() {
+    const slot = slotRef.current;
+    if (!slot?.location?.lat || !slot?.location?.lng) {
+      toast.error("Slot coordinates not available");
+      return;
+    }
+
+    const dest = `${slot.location.lat},${slot.location.lng}`;
+    const origin = userPos ? `${userPos.lat},${userPos.lng}` : null;
+
+    const url =
+      "https://www.google.com/maps/dir/?api=1" +
+      (origin ? `&origin=${encodeURIComponent(origin)}` : "") +
+      `&destination=${encodeURIComponent(dest)}` +
+      "&travelmode=driving";
+
+    window.open(url, "_blank", "noopener,noreferrer");
+  }
 
   async function handleCancel(reservationId) {
     try {
@@ -198,7 +217,7 @@ export default function ReservationsPage() {
     try {
       const newTime = await extendReservation(reservationId, minutes);
       toast.success(
-        `Reservation ${reservationId} extended until ${newTime.toLocaleString()}`
+        `Reservation ${reservationId} extended until ${newTime.toLocaleString()}`,
       );
     } catch (err) {
       toast.error("Extend failed: " + err.message);
@@ -207,7 +226,7 @@ export default function ReservationsPage() {
 
   async function handleArrive(
     reservationId,
-    { source = "manual", distance } = {}
+    { source = "manual", distance } = {},
   ) {
     try {
       await arriveReservation(reservationId);
@@ -216,7 +235,7 @@ export default function ReservationsPage() {
         toast.success(
           meters != null
             ? `You arrived at your reservation location (${meters}m away)`
-            : `You arrived at your reservation location`
+            : `You arrived at your reservation location`,
         );
       } else {
         toast.success(`Arrival confirmed for reservation ${reservationId}`);
@@ -294,6 +313,13 @@ export default function ReservationsPage() {
                     <div className="flex flex-col gap-2 sm:flex-row sm:gap-4">
                       {r.status === "active" && (
                         <>
+                          <Button
+                            onClick={handleNavigate}
+                            variant="secondary"
+                            className="w-full sm:w-auto"
+                          >
+                            Navigate
+                          </Button>
                           <Button
                             onClick={() => handleCancel(r.id)}
                             variant="danger"
