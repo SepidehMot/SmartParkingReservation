@@ -103,7 +103,7 @@ function CheckOTPForm({
               className="h-11 rounded-lg border border-primary-400 text-center"
             />
           )}
-          containerStyle="flex flex-wrap justify-center gap-2"
+          containerStyle="flex flex-wrap justify-center gap-1"
           inputStyle={{
             width: "clamp(2rem, 10vw, 2rem)",
           }}
