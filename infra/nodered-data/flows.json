@@ -658,7 +658,7 @@
             },
             {
                 "p": "reservationId",
-                "v": "1cpv8eI8gpgVMVRs2Ene",
+                "v": "2rWITIe8JVTBKo5LbQnX",
                 "vt": "str"
             },
             {
@@ -698,17 +698,17 @@
             },
             {
                 "p": "reservationId",
-                "v": "EpH4pXeUlZSmBzOs7KE5",
+                "v": "Jx4pFruVWzpmWR8BQcMc",
                 "vt": "str"
             },
             {
                 "p": "gwId",
-                "v": "GW_1",
+                "v": "GW_2",
                 "vt": "str"
             },
             {
                 "p": "slotId",
-                "v": "S1",
+                "v": "S2",
                 "vt": "str"
             }
         ],
@@ -889,17 +889,17 @@
             },
             {
                 "p": "reservationId",
-                "v": "r2CG1pysDH8bohIVXCbZ",
+                "v": "Jx4pFruVWzpmWR8BQcMc",
                 "vt": "str"
             },
             {
                 "p": "gwId",
-                "v": "GW_1",
+                "v": "GW_2",
                 "vt": "str"
             },
             {
                 "p": "slotId",
-                "v": "S1",
+                "v": "S2",
                 "vt": "str"
             }
         ],
@@ -1023,7 +1023,7 @@
             },
             {
                 "p": "reservationId",
-                "v": "EpH4pXeUlZSmBzOs7KE5",
+                "v": " Jx4pFruVWzpmWR8BQcMc",
                 "vt": "str"
             },
             {
@@ -1335,6 +1335,53 @@
         "wires": []
     },
     {
+        "id": "2b03413bb721b919",
+        "type": "inject",
+        "z": "d41148fb949e110b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 1900,
+        "wires": [
+            [
+                "5dc141630a3fad6c"
+            ]
+        ]
+    },
+    {
+        "id": "5dc141630a3fad6c",
+        "type": "function",
+        "z": "d41148fb949e110b",
+        "name": "delete all metrics",
+        "func": "const admin = global.get(\"firebase_admin\");\nif (!admin) {\n    node.error(\"Firebase Admin not initialized\");\n    return null;\n}\n\nconst db = admin.firestore();\n\n(async () => {\n    try {\n        const snap = await db.collection(\"metrics_points\").limit(300).get();\n        if (snap.empty) {\n            node.warn(\"No metrics to delete\");\n            return;\n        }\n\n        const batch = db.batch();\n        snap.docs.forEach(doc => batch.delete(doc.ref));\n\n        await batch.commit();\n        node.log(`Deleted ${snap.size} metrics`);\n    } catch (err) {\n        node.error(\"Batch delete failed: \" + err.message, msg);\n    } finally {\n        node.done();\n    }\n})();\n\nreturn;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 1900,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "1cb316950f0f15b2",
         "type": "ui_dropdown",
         "z": "c195c791176b5fba",
@@ -1491,7 +1538,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "5",
+        "repeat": "18000",
         "crontab": "",
         "once": true,
         "onceDelay": "2",
@@ -1667,7 +1714,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "600",
+        "repeat": "36000",
         "crontab": "",
         "once": true,
         "onceDelay": "2",
