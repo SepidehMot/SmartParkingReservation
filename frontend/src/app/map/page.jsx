@@ -23,11 +23,11 @@ import Button from "@/components/Button";
 
 const MapContainer = dynamic(
   () => import("react-leaflet").then((m) => m.MapContainer),
-  { ssr: false }
+  { ssr: false },
 );
 const TileLayer = dynamic(
   () => import("react-leaflet").then((m) => m.TileLayer),
-  { ssr: false }
+  { ssr: false },
 );
 const Marker = dynamic(() => import("react-leaflet").then((m) => m.Marker), {
   ssr: false,
@@ -98,7 +98,7 @@ export default function ParkingMapPage() {
               ...prev,
               [lot.id]: snap.docs.map((d) => ({ id: d.id, ...d.data() })),
             }));
-          }
+          },
         );
         unsubs.push(unsub);
       });
@@ -140,17 +140,17 @@ export default function ParkingMapPage() {
         console.warn(
           "Geolocation error:",
           err.message,
-          "- falling back to Genova"
+          "- falling back to Genova",
         );
         setCoords([44.4, 8.97]);
-      }
+      },
     );
   }, []);
   useEffect(() => {
     if (!selected) return;
 
     const slot = (slotsByLot[selected.lotId] || []).find(
-      (s) => s.id === selected.slotId
+      (s) => s.id === selected.slotId,
     );
 
     if (!slot || slot.status !== "free") {
@@ -238,7 +238,7 @@ export default function ParkingMapPage() {
             </button>
           </div>
         ),
-        { duration: 10000 }
+        { duration: 10000 },
       );
     } catch (err) {
       toast.error(err.message);
@@ -345,7 +345,7 @@ export default function ParkingMapPage() {
                   handleReserve(
                     selected.lotName,
                     selected.lotId,
-                    selected.slotId
+                    selected.slotId,
                   );
                 }}
                 variant="primary"
@@ -413,14 +413,22 @@ export default function ParkingMapPage() {
                           });
                         }}
                       >
-                        {slot.status === "free" && slot.lockStatus === "free"
-                          ? "Tap to select"
-                          : <p className={`${getSlotClasses(slot.lockStatus)} mt-2`}>Not selectable</p>}
+                        {!isSelected &&
+                          (slot.status === "free" &&
+                          slot.lockStatus === "free" ? (
+                            "Tap to select"
+                          ) : (
+                            <p
+                              className={`${getSlotClasses(slot.lockStatus)} mt-2`}
+                            >
+                              Not selectable
+                            </p>
+                          ))}
                       </div>
                     </Popup>
                   </Marker>
                 );
-              })
+              }),
             )}
           </MapContainer>
         </div>
