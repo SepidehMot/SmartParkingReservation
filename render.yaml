@@ -6,7 +6,7 @@ services:
     rootDir: frontend
     buildCommand: "npm install --legacy-peer-deps && npm run build"
     startCommand: "npm start"
-    plan: free
+    plan: starter
     envVars:
       - key: NEXT_PUBLIC_API_URL
         value: https://smartparking-node-red.onrender.com
