@@ -476,7 +476,7 @@
         "type": "function",
         "z": "d41148fb949e110b",
         "name": "Update Gateway",
-        "func": "const admin = global.get(\"firebase_admin\");\nif (!admin) { node.warn(\"Firebase Admin not initialized\"); return msg; }\nconst db = admin.firestore();\n\nconst { gwId, locks: locksIn, ts } = msg.payload || {};\nif (!gwId) { node.warn(\"Missing gwId in heartbeat\"); return msg; }\n\nasync function getLotIdForGw(gwId) {\n  let gwMap = context.get(\"gwMap\") || {};\n  if (!gwMap[gwId]) {\n    const lotsSnap = await db.collection(\"parkingLots\").get();\n    lotsSnap.forEach(doc => {\n      const d = doc.data() || {};\n      if (d.gwId) gwMap[d.gwId] = doc.id;\n    });\n    context.set(\"gwMap\", gwMap);\n  }\n  return gwMap[gwId] || null;\n}\n\n(async () => {\n  try {\n    const lotId = await getLotIdForGw(gwId);\n    if (!lotId) {\n      node.warn(`No lotId mapped for gwId=${gwId}`);\n      return;\n    }\n\n    const lotRef = db.collection(\"parkingLots\").doc(lotId);\n\n    const batch = db.batch();\n\n   \n    batch.set(lotRef, {\n      lastSeenAt: admin.firestore.FieldValue.serverTimestamp(),\n      lastHeartbeatDeviceTs: ts ,\n       updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n    }, { merge: true });\n\n    for (const lock of locksIn) {\n      const slotId = lock?.slotId;\n      if (!slotId) continue;\n\n      const slotRef = lotRef.collection(\"slots\").doc(slotId);\n\n      const partial = {\n        reportedBattery: (typeof lock?.battery === \"number\") ? lock.battery : null,\n        reportedArmPosition: lock?.armPosition || null,\n        reportedLockStatus: lock.lockStatus,\n        reportedSensor: lock.sensor,\n        lastSeenAt: admin.firestore.FieldValue.serverTimestamp(),\n        lastHeartbeatDeviceTs: lock?.ts,\n        updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n      };\n      batch.set(slotRef, partial, { merge: true });\n    }\n\n    await batch.commit();\n\n    node.log(`Heartbeat from ${gwId} → monitored ${locksIn.length} locks`);\n\n  } catch (err) {\n    node.error(\"Firestore heartbeat handler error: \" + err.message, msg);\n  } finally {\n    node.done();\n  }\n})();\n\nreturn msg;\n",
+        "func": "const admin = global.get(\"firebase_admin\");\nif (!admin) { node.warn(\"Firebase Admin not initialized\"); return msg; }\nconst db = admin.firestore();\n\nconst { gwId, locks: locksIn, ts } = msg.payload || {};\nif (!gwId) { node.warn(\"Missing gwId in heartbeat\"); return msg; }\n\nasync function getLotIdForGw(gwId) {\n  let gwMap = context.get(\"gwMap\") || {};\n  if (!gwMap[gwId]) {\n    const lotsSnap = await db.collection(\"parkingLots\").get();\n    lotsSnap.forEach(doc => {\n      const d = doc.data() || {};\n      if (d.gwId) gwMap[d.gwId] = doc.id;\n    });\n    context.set(\"gwMap\", gwMap);\n  }\n  return gwMap[gwId] || null;\n}\n\n(async () => {\n  try {\n    const lotId = await getLotIdForGw(gwId);\n    if (!lotId) {\n      node.warn(`No lotId mapped for gwId=${gwId}`);\n      return;\n    }\n\n    const lotRef = db.collection(\"parkingLots\").doc(lotId);\n\n    const batch = db.batch();\n\n   \n    batch.set(lotRef, {\n      lastSeenAt: admin.firestore.FieldValue.serverTimestamp(),\n      lastHeartbeatDeviceTs: ts ,\n       updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n    }, { merge: true });\n\n    for (const lock of locksIn) {\n      const slotId = lock?.slotId;\n      if (!slotId) continue;\n\n      const slotRef = lotRef.collection(\"slots\").doc(slotId);\n\n      const partial = {\n        reportedBattery: (typeof lock?.battery === \"number\") ? lock.battery : null,\n        reportedArmPosition: lock?.armPosition || null,\n        reportedLockStatus: lock.lockStatus,\n        reportedSensor: lock.sensor,\n        lastSeenAt: admin.firestore.FieldValue.serverTimestamp(),\n        lastHeartbeatDeviceTs: lock?.ts,\n        // updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n\n      };\n      batch.set(slotRef, partial, { merge: true });\n    }\n\n    await batch.commit();\n\n    node.log(`Heartbeat from ${gwId} → monitored ${locksIn.length} locks`);\n\n  } catch (err) {\n    node.error(\"Firestore heartbeat handler error: \" + err.message, msg);\n  } finally {\n    node.done();\n  }\n})();\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -658,7 +658,7 @@
             },
             {
                 "p": "reservationId",
-                "v": "2rWITIe8JVTBKo5LbQnX",
+                "v": "xKDMifmM6zM2ugrm7vBg",
                 "vt": "str"
             },
             {
@@ -698,7 +698,7 @@
             },
             {
                 "p": "reservationId",
-                "v": "Jx4pFruVWzpmWR8BQcMc",
+                "v": "xKDMifmM6zM2ugrm7vBg",
                 "vt": "str"
             },
             {
@@ -889,7 +889,7 @@
             },
             {
                 "p": "reservationId",
-                "v": "Jx4pFruVWzpmWR8BQcMc",
+                "v": "xKDMifmM6zM2ugrm7vBg",
                 "vt": "str"
             },
             {
@@ -1023,7 +1023,7 @@
             },
             {
                 "p": "reservationId",
-                "v": " Jx4pFruVWzpmWR8BQcMc",
+                "v": " xKDMifmM6zM2ugrm7vBg",
                 "vt": "str"
             },
             {
