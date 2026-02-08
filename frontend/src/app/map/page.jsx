@@ -48,22 +48,22 @@ export default function ParkingMapPage() {
   const router = useRouter();
   const [selected, setSelected] = useState(null);
   // const [startAt, setStartAt] = useState(nowLocalDatetime());
-  function nowLocalDatetime() {
-    const d = new Date();
-    const pad = (n) => String(n).padStart(2, "0");
+  // function nowLocalDatetime() {
+  //   const d = new Date();
+  //   const pad = (n) => String(n).padStart(2, "0");
 
-    return (
-      d.getFullYear() +
-      "-" +
-      pad(d.getMonth() + 1) +
-      "-" +
-      pad(d.getDate()) +
-      "T" +
-      pad(d.getHours()) +
-      ":" +
-      pad(d.getMinutes())
-    );
-  }
+  //   return (
+  //     d.getFullYear() +
+  //     "-" +
+  //     pad(d.getMonth() + 1) +
+  //     "-" +
+  //     pad(d.getDate()) +
+  //     "T" +
+  //     pad(d.getHours()) +
+  //     ":" +
+  //     pad(d.getMinutes())
+  //   );
+  // }
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (u) => setUser(u));
     return () => unsub();
@@ -199,7 +199,7 @@ export default function ParkingMapPage() {
         toast.error("Slot not found");
         return;
       }
-      console.log(startAtIso);
+      // console.log(startAtIso);
       if (!isReservable(slot)) {
         toast.error("This slot is not reservable (out of order / not free)");
         return;

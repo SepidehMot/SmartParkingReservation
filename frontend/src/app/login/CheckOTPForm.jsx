@@ -93,6 +93,7 @@ function CheckOTPForm({
         <OTPInput
           value={otp}
           onChange={setOtp}
+          type="tel"
           numInputs={6}
           renderSeparator={<span className="text-secondary-300">-</span>}
           renderInput={(props) => (

@@ -331,7 +331,6 @@ export default function ReservationsPage() {
                             onClick={() => handleArrive(r.id)}
                             variant="primary"
                             className="w-full sm:w-auto"
-                            style={{ backgroundColor: "green", color: "white" }}
                           >
                             I Arrived
                           </Button>
@@ -343,7 +342,6 @@ export default function ReservationsPage() {
                           onClick={() => handleLeave(r.id)}
                           variant="secondary"
                           className="w-full sm:w-auto"
-                          style={{ backgroundColor: "blue", color: "white" }}
                         >
                           I Left
                         </Button>
