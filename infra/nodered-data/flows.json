@@ -1382,6 +1382,53 @@
         ]
     },
     {
+        "id": "752695f64187a541",
+        "type": "inject",
+        "z": "d41148fb949e110b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 940,
+        "wires": [
+            [
+                "4e96497ed94ba84d"
+            ]
+        ]
+    },
+    {
+        "id": "4e96497ed94ba84d",
+        "type": "function",
+        "z": "d41148fb949e110b",
+        "name": "Cancel stuck reserving",
+        "func": "\nconst admin = global.get(\"firebase_admin\");\nif (!admin) { node.warn(\"Firebase Admin not initialized\"); return null; }\nconst db = admin.firestore();\n\nconst STALE_MS = 60 * 1000;\nconst now = Date.now();\n\n(async () => {\n    try {\n        const lotsSnap = await db.collection(\"parkingLots\").get();\n        if (lotsSnap.empty) return;\n\n        for (const lotDoc of lotsSnap.docs) {\n            const lotId = lotDoc.id;\n            const slotsSnap = await db\n                .collection(\"parkingLots\").doc(lotId)\n                .collection(\"slots\")\n                .where(\"status\", \"==\", \"reserving\")\n                .get();\n\n            if (slotsSnap.empty) continue;\n\n            for (const slotDoc of slotsSnap.docs) {\n                const slotId = slotDoc.id;\n                const slotData = slotDoc.data() || {};\n                const updatedAt = slotData.updatedAt;\n                const updatedMs = updatedAt?.toMillis ? updatedAt.toMillis() : null;\n                if (!updatedMs) continue;\n                if ((now - updatedMs) < STALE_MS) continue;\n\n                const slotRef = slotDoc.ref;\n                const nowTs = admin.firestore.Timestamp.now();\n                const resSnap = await db.collection(\"reservations\")\n                    .where(\"lotId\", \"==\", lotId)\n                    .where(\"slotId\", \"==\", slotId)\n                    .where(\"status\", \"==\", \"active\")\n                    .where(\"expiresAt\", \">\", nowTs)\n                    .limit(1)\n                    .get();\n\n                if (resSnap.empty) {\n                    await slotRef.set({\n                        status: \"free\",\n                        updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n                        lastRecoveryAt: admin.firestore.FieldValue.serverTimestamp(),\n                    }, { merge: true });\n                    node.warn(`Recovered slot ${lotId}/${slotId}: reserving stale but no active reservation`);\n                    continue;\n                }\n\n                const resDoc = resSnap.docs[0];\n                const resRef = resDoc.ref;\n\n                await db.runTransaction((tx) => {\n                return tx.get(resRef).then((freshRes) => {\n                    return tx.get(slotRef).then((freshSlot) => {\n\n                    if (!freshRes.exists || !freshSlot.exists) return false;\n\n                    const r = freshRes.data() || {};\n                    const s = freshSlot.data() || {};\n\n                    if (s.status !== \"reserving\") return false;\n                    if (r.status !== \"active\") return false;\n\n                    tx.update(resRef, {\n                        status: \"cancelled\",\n                        cancelledAt: admin.firestore.FieldValue.serverTimestamp(),\n                        cancelReason: \"reserve_timeout_no_device_confirmation\",\n                        updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n                    });\n\n                    tx.update(slotRef, {\n                        status: \"free\",\n                        updatedAt: admin.firestore.FieldValue.serverTimestamp(),\n                        lastRecoveryAt: admin.firestore.FieldValue.serverTimestamp(),\n                        lastRecoveryReason: \"stuck_reserving_timeout\",\n                    });\n\n                    return true;\n                    });\n                });\n                });\n\n\n\n                node.warn(`Auto-cancelled stale reserving reservation: lot=${lotId}, slot=${slotId}, res=${resDoc.id}`);\n            }\n        }\n    } catch (err) {\n        node.error(\"Stuck reserving job failed: \" + (err.message || err));\n    } finally {\n        node.done();\n    }\n})();\n\nreturn null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "1cb316950f0f15b2",
         "type": "ui_dropdown",
         "z": "c195c791176b5fba",

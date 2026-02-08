@@ -33,6 +33,7 @@ export default function ReservationsPage() {
   const slotRef = useRef(null);
   const activeResRef = useRef(null);
   const hasAutoArrivedRef = useRef(false);
+  const prevActiveResIdRef = useRef(null);
   const [userPos, setUserPos] = useState(null);
 
   useEffect(() => {
@@ -44,6 +45,9 @@ export default function ReservationsPage() {
 
   useEffect(() => {
     hasAutoArrivedRef.current = false;
+     if (activeRes?.id) {
+    prevActiveResIdRef.current = activeRes.id;
+  }
   }, [activeRes?.id]);
 
   useEffect(() => {
@@ -185,6 +189,28 @@ export default function ReservationsPage() {
 
     return () => navigator.geolocation.clearWatch(watchId);
   }, []);
+  useEffect(() => {
+  
+  if (activeRes) return;
+
+  const prevId = prevActiveResIdRef.current;
+  if (!prevId) return;
+
+  const cancelledBySystem = reservations.find(
+    (r) =>
+      r.id === prevId &&
+      r.status === "cancelled" &&
+      !!r.cancelReason
+  );
+
+  if (cancelledBySystem) {
+    toast.error(
+      `Reservation ${cancelledBySystem.id} cancelled by the system. Try to reserve another slot.`
+    );
+    prevActiveResIdRef.current = null;
+  }
+}, [reservations, activeRes]);
+
   function handleNavigate() {
     const slot = slotRef.current;
     if (!slot?.location?.lat || !slot?.location?.lng) {
