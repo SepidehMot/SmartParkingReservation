@@ -46,7 +46,7 @@ function publishStatus() {
       magnetic: magneticSensor,
       proximity: proximitySensor,
       sensor,
-    })
+    }),
   );
 }
 
@@ -71,7 +71,7 @@ client.on("connect", () => {
         battery,
         sensor,
         ts: Date.now(),
-      })
+      }),
     );
   }, 60000);
 });
@@ -109,24 +109,21 @@ client.on("message", (topic, buf) => {
     return;
   }
   if (msg.type === "SIM_OBJECT" && msg.slotId === slotId) {
-    magneticSensor = msg.magnetic;
-    proximitySensor = msg.proximity;
+    magneticSensor = !!msg.magnetic;
+    proximitySensor = !!msg.proximity;
     if (pendingArrive && isRealCarPresent()) {
       if (lockStatus !== "occupied") {
         lockStatus = "occupied";
         armPosition = "lowered";
-        pendingArrive = null;
         drainBattery();
-        publishStatus();
-      } else {
-        pendingArrive = null;
       }
-    } else if (!pendingArrive && !isRealCarPresent()) {
-      if (lockStatus !== "out_of_order") {
-        lockStatus = "free";
-      }
-      publishStatus();
+      pendingArrive = null;
     }
+    if (!pendingArrive && !isRealCarPresent() && lockStatus === "occupied") {
+      lockStatus = "free";
+      armPosition = "lowered";
+    }
+    publishStatus();
     return;
   }
   if (

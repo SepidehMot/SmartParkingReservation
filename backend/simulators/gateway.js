@@ -1,6 +1,6 @@
 // Gateway Simulator
-if (process.env.NODE_ENV !== 'production') {
-    require("dotenv").config(); 
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
 }
 const mqtt = require("mqtt");
 
@@ -56,7 +56,7 @@ client.on("message", (topic, buf) => {
           publisherId: `${gwId}:${process.pid}:${Math.random()
             .toString(16)
             .slice(2)}`,
-        })
+        }),
       );
     }
 
@@ -70,6 +70,8 @@ client.on("message", (topic, buf) => {
         l.ts = data.ts || Date.now();
         l.battery = data.battery;
         l.sensor = data.sensor;
+        l.magnetic = data.magnetic;
+        l.proximity = data.proximity;
       }
     }
 
@@ -91,7 +93,7 @@ function sendGatewayHeartbeat() {
   const hb = {
     type: "HEARTBEAT",
     gwId,
-    ts:Date.now(),
+    ts: Date.now(),
     locks: locks.map((l) => ({
       lockId: l.lockId,
       slotId: l.slotId,
